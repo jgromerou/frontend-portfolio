@@ -1,0 +1,58 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+.center {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.grid {
+  margin: 1rem;
+  display: grid;
+  align-content: space-between;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  .grid-item-anim {
+    transition: transform 500ms ease;
+    &:hover {
+      transform: translateY(-3px);
+    }
+  }
+}
+
+// Specific component overrides, pieces that are not in line with the general theming
+
+// Handle buttons appropriately, with respect to line-height
+.mat-raised-button,
+.mat-stroked-button,
+.mat-flat-button {
+  padding: 0 1.15em;
+  margin: 0 0.65em;
+  min-width: 3em;
+  line-height: 36.4px;
+}
+
+.mat-standard-chip {
+  padding: 0.5em 0.85em;
+  min-height: 2.5em;
+}
+
+.material-icons {
+  font-size: 24px;
+  font-family: "Material Icons Outlined", "Material Icons";
+  .mat-badge-content {
+    font-family: "DM Sans";
+  }
+}
+
+mat-card-title {
+  text-align: center;
+}

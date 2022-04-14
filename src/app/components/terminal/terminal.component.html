@@ -1,0 +1,25 @@
+<h1>Lenguajes y Herramientas</h1>
+<p>Tecnologías que estoy usando</p>
+
+<input type="hidden" #selection />
+
+<div class="card-container">
+  <button mat-button (click)="selection.value = 'angular'" tabindex="0">
+    <mat-icon>subtitles</mat-icon><span>Angular</span>
+  </button>
+
+  <button mat-button (click)="selection.value = 'material'" tabindex="0">
+    <mat-icon>style</mat-icon><span>Material</span>
+  </button>
+
+  <button mat-button (click)="selection.value = 'bootstrap'" tabindex="0">
+    <mat-icon>payment</mat-icon><span>Bootstrap</span>
+  </button>
+</div>
+
+<div class="terminal" [ngSwitch]="selection.value">
+  <pre *ngSwitchDefault>ng generate component xyz</pre>
+  <pre *ngSwitchCase="'angular'">ng new project</pre>
+  <pre *ngSwitchCase="'material'">ng add @angular/material</pre>
+  <pre *ngSwitchCase="'bootstrap'">npm install bootstrap</pre>
+</div>
