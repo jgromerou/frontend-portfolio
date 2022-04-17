@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import localeEs from '@angular/common/locales/es';
 import { registerLocaleData } from '@angular/common';
+import { LogindialogComponent } from '../logindialog/logindialog.component';
+import { MatDialog } from '@angular/material/dialog';
 registerLocaleData(localeEs, 'es');
 
 @Component({
@@ -14,7 +16,7 @@ export class ProfileComponent implements OnInit {
   profile: any;
   username = 'jgromerou';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private dialog: MatDialog) {}
 
   ngOnInit() {
     this.getProfileInfo().subscribe((profile) => {

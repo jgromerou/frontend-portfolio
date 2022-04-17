@@ -10,6 +10,10 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { TerminalComponent } from './components/terminal/terminal.component';
 import { ProjectsgithubComponent } from './components/projectsgithub/projectsgithub.component';
+import { LogindialogComponent } from './components/logindialog/logindialog.component';
+import { LoginComponent } from './components/login/login.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HomepageComponent } from './components/homepage/homepage.component';
 
 @NgModule({
   declarations: [
@@ -19,12 +23,17 @@ import { ProjectsgithubComponent } from './components/projectsgithub/projectsgit
     FooterComponent,
     TerminalComponent,
     ProjectsgithubComponent,
+    LogindialogComponent,
+    LoginComponent,
+    HomepageComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     AppMaterialModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'es' }],
   bootstrap: [AppComponent],

@@ -1,4 +1,4 @@
-<mat-toolbar class="toolbar" color="primary">
+<mat-toolbar color="primary">
   <button
     mat-icon-button
     class="example-icon"
@@ -16,13 +16,6 @@
   >
     <mat-icon>favorite</mat-icon>
   </button>
-  <button
-    mat-icon-button
-    class="example-icon"
-    aria-label="Example icon-button with share icon"
-  >
-    <mat-icon>share</mat-icon>
-  </button>
   <a
     mat-icon-button
     class="example-icon"
@@ -31,4 +24,6 @@
   >
     <mat-icon>share</mat-icon>
   </a>
+  <!-- <a mat-button [routerLink]="login">Mi perfil</a> -->
+  <button mat-button (click)="irLogin()">Login</button>
 </mat-toolbar>
