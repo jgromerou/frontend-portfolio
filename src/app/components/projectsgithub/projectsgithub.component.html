@@ -1,37 +1,39 @@
-<h1>Projects</h1>
-<div class="grid">
-  <mat-card class="grid-item-anim" *ngFor="let repo of repos">
-    <mat-card-header>
-      <!-- <div mat-card-avatar></div> -->
-      <mat-card-title>{{ repo.name }}</mat-card-title>
-      <mat-card-subtitle
-        >Última actualización: {{ repo.updated_at | date
-        }}<mat-chip-list>
-          <mat-chip selected>{{ repo.watchers }} Stars </mat-chip>
-          <mat-chip selected>{{ repo.forks }} Forks </mat-chip>
-        </mat-chip-list></mat-card-subtitle
-      >
-    </mat-card-header>
+<div class="container" id="projects">
+  <h1 class="header-s">Projects</h1>
+  <div class="grid">
+    <mat-card class="grid-item-anim" *ngFor="let repo of repos">
+      <mat-card-header>
+        <!-- <div mat-card-avatar></div> -->
+        <mat-card-title>{{ repo.name }}</mat-card-title>
+        <mat-card-subtitle
+          >Última actualización: {{ repo.updated_at | date
+          }}<mat-chip-list>
+            <mat-chip selected>{{ repo.watchers }} Stars </mat-chip>
+            <mat-chip selected>{{ repo.forks }} Forks </mat-chip>
+          </mat-chip-list></mat-card-subtitle
+        >
+      </mat-card-header>
 
-    <mat-card-content>
-      <p>
-        {{ repo.name | titlecase }} es un {{ repo.description }} App Web escrita
-        primeramente sobre {{ repo.language }} con un tamaño de
-        {{ repo.size / 1000 | number: "1.2-2" }}MB y utilizando la siguiente
-        tecnologia:
-      </p>
-      <mat-chip-list>
-        <mat-chip *ngFor="let topic of repo.topics">{{ topic }}</mat-chip>
-      </mat-chip-list>
-    </mat-card-content>
-    <mat-card-actions class="center">
-      <a
-        mat-raised-button
-        color="accent"
-        href="{{ repo.html_url }}"
-        target="_blank"
-        >Ver en github</a
-      >
-    </mat-card-actions>
-  </mat-card>
+      <mat-card-content>
+        <p>
+          {{ repo.name | titlecase }} es un {{ repo.description }} App Web
+          escrita primeramente sobre {{ repo.language }} con un tamaño de
+          {{ repo.size / 1000 | number: "1.2-2" }}MB y utilizando la siguiente
+          tecnologia:
+        </p>
+        <mat-chip-list>
+          <mat-chip *ngFor="let topic of repo.topics">{{ topic }}</mat-chip>
+        </mat-chip-list>
+      </mat-card-content>
+      <mat-card-actions class="center">
+        <a
+          mat-raised-button
+          color="accent"
+          href="{{ repo.html_url }}"
+          target="_blank"
+          >Ver en github</a
+        >
+      </mat-card-actions>
+    </mat-card>
+  </div>
 </div>

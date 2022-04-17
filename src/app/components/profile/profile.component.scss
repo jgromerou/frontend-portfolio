@@ -10,7 +10,7 @@
     rgba(193, 221, 255, 1) 70%,
     rgba(193, 221, 255, 0) 70%
   );
-  padding: 20px;
+  padding: 4rem 20px 10px 20px;
   background-image: url("https://images.pexels.com/photos/265152/pexels-photo-265152.jpeg?cs=srgb&dl=pexels-pixabay-265152.jpg&fm=jpg");
   background-position: center;
   background-size: cover;
@@ -38,6 +38,7 @@ mat-card {
 }
 
 mat-card-header {
+  margin-top: 2rem;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
