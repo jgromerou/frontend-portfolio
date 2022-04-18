@@ -25,5 +25,12 @@
     <mat-icon>share</mat-icon>
   </a>
   <!-- <a mat-button [routerLink]="login">Mi perfil</a> -->
-  <button mat-button (click)="irLogin()">Login</button>
+  <button mat-button *ngIf="!authService.isLoggedIn" (click)="irLogin()">
+    Login
+  </button>
+  <div class="submit" *ngIf="authService.isLoggedIn">
+    <button type="submit" class="btn clr-btn" (click)="logout()">
+      Cerrar Sesion
+    </button>
+  </div>
 </mat-toolbar>

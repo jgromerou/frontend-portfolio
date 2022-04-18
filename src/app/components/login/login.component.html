@@ -1,7 +1,7 @@
 <div class="signin-content">
   <mat-card>
     <mat-card-content>
-      <form [formGroup]="formLogin" (ngSubmit)="onSubmit()">
+      <form [formGroup]="formLogin" (ngSubmit)="onEnviar($event)">
         <p>Iniciar Sesión</p>
         <mat-form-field class="full-width-input">
           <input

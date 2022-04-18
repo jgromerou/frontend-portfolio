@@ -35,7 +35,7 @@ import { HomepageComponent } from './components/homepage/homepage.component';
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [{ provide: LOCALE_ID, useValue: 'es' }],
+  providers: [{ provide: LOCALE_ID, useValue: 'es' }, ToolbarComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
