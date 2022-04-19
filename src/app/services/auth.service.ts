@@ -7,7 +7,7 @@ import { BehaviorSubject, map, Observable } from 'rxjs';
 })
 export class AuthService {
   isLoggedIn!: boolean;
-  url = 'https://backendargentinaprograma.herokuapp.com/api/auth/login';
+  url = 'http://localhost:8080/api/auth/login';
   currentUserSubject: BehaviorSubject<any>;
   constructor(private http: HttpClient) {
     console.log('El servicio de autenticacion está corriendo');

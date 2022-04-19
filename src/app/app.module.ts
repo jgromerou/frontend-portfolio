@@ -14,6 +14,7 @@ import { LogindialogComponent } from './components/logindialog/logindialog.compo
 import { LoginComponent } from './components/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomepageComponent } from './components/homepage/homepage.component';
+import { HabilidadComponent } from './components/habilidad/habilidad.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { HomepageComponent } from './components/homepage/homepage.component';
     LogindialogComponent,
     LoginComponent,
     HomepageComponent,
+    HabilidadComponent,
   ],
   imports: [
     BrowserModule,
