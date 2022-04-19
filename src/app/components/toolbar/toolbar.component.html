@@ -28,9 +28,7 @@
   <button mat-button *ngIf="!authService.isLoggedIn" (click)="irLogin()">
     Login
   </button>
-  <div class="submit" *ngIf="authService.isLoggedIn">
-    <button type="submit" class="btn clr-btn" (click)="logout()">
-      Cerrar Sesion
-    </button>
-  </div>
+  <button mat-button *ngIf="authService.isLoggedIn" (click)="logout()">
+    Cerrar Sesion
+  </button>
 </mat-toolbar>

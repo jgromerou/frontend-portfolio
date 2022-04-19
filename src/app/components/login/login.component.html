@@ -30,7 +30,13 @@
             </span>
           </mat-error>
         </mat-form-field>
-        <button mat-raised-button color="primary">Login</button>
+        <button
+          mat-raised-button
+          [disabled]="formLogin.invalid"
+          color="primary"
+        >
+          Login
+        </button>
       </form>
       <mat-divider></mat-divider>
 

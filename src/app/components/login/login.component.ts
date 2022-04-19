@@ -16,7 +16,6 @@ import { ToolbarComponent } from '../toolbar/toolbar.component';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-  @ViewChild(ToolbarComponent) isLoggedIn!: boolean;
   formLogin!: FormGroup;
 
   isLoginFailed = false;
@@ -26,7 +25,6 @@ export class LoginComponent {
   constructor(
     public fb: FormBuilder,
     private authService: AuthService,
-    private _is: ToolbarComponent,
     private tokenStorage: TokenLocalstorageService,
     private ruta: Router
   ) {
@@ -45,9 +43,6 @@ export class LoginComponent {
         /*  this.tokenStorage.saveUser(data); */
         this.ruta.navigate(['/homepage']);
         this.isLoginFailed = false;
-        this._is.isLoggedIn = true;
-        console.log(this.isLoggedIn);
-
         this.roles = this.tokenStorage.getUser().roles;
         // this.reloadPage();
       },
