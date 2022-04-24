@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HabilidadService } from 'src/app/services/habilidad.service';
 
+// import { Skill } from 'src/app/class/skill';
+
 @Component({
   selector: 'app-habilidad',
   templateUrl: './habilidad.component.html',
@@ -9,12 +11,15 @@ import { HabilidadService } from 'src/app/services/habilidad.service';
 export class HabilidadComponent implements OnInit {
   miHabilidad: any;
 
-  constructor(private datosHabilidad: HabilidadService) {}
+  constructor(
+    private datosHabilidad: HabilidadService,
+    public sSkill: HabilidadService
+  ) {}
 
   ngOnInit(): void {
     this.datosHabilidad.obtenerDatos().subscribe((data) => {
-      //console.log('Habilidades', JSON.stringify(data));
       this.miHabilidad = data;
+      console.log('Habilidaddes', this.miHabilidad);
     });
   }
 }

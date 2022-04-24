@@ -1,11 +1,14 @@
 <mat-toolbar color="primary">
-  <button
-    mat-icon-button
-    class="example-icon"
-    aria-label="Example icon-button with menu icon"
-  >
-    <mat-icon>menu</mat-icon>
-  </button>
+  <div>
+    <button
+      mat-icon-button
+      *ngIf="sidenav.mode === 'over'"
+      (click)="sidenav.toggle()"
+    >
+      <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
+      <mat-icon *ngIf="sidenav.opened"> close </mat-icon>
+    </button>
+  </div>
 
   <span>PORTFOLIO DE JUAN GERARDO ROMERO URO</span>
   <span class="spacer"></span>
@@ -32,3 +35,43 @@
     Cerrar Sesion
   </button>
 </mat-toolbar>
+
+<mat-sidenav-container fxFlexFill>
+  <mat-sidenav #sidenav="matSidenav" fxLayout="column" closed="true">
+    <div fxLayout="column">
+      <a mat-button class="menu-button" href="#profile">
+        <mat-icon class="fab fa-instagram">account_circle</mat-icon>
+        <span>homepage</span>
+      </a>
+
+      <mat-divider></mat-divider>
+      <div fxLayout="column">
+        <a
+          mat-button
+          class="menu-button"
+          aria-label="Example icon-button with share icon"
+          href="#projects"
+        >
+          <mat-icon>share</mat-icon><span>Proyectos</span>
+        </a>
+      </div>
+
+      <mat-divider></mat-divider>
+      <div fxLayout="column">
+        <a
+          mat-button
+          class="menu-button"
+          aria-label="Example icon-button with share icon"
+          href="#habilidad"
+        >
+          <mat-icon>share</mat-icon><span>Habilidades</span>
+        </a>
+      </div>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="content mat-elevation-z8">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
