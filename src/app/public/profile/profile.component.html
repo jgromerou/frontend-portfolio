@@ -1,0 +1,52 @@
+<div class="center pos">
+  <div class="background" *ngIf="profile">
+    <mat-card class="bio">
+      <!-- <img src="{{ profile.foto_perfil }}" class="avatar" /> -->
+
+      <mat-card-header>
+        <mat-card-title>{{
+          profile.nombres + " " + profile.apellidos
+        }}</mat-card-title>
+        <mat-card-subtitle>{{ profile.acercade }}</mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-list>
+        <mat-list-item align="center"
+          >vivo en {{ profile.domicilio }}</mat-list-item
+        >
+        <mat-list-item align="center"
+          >Contactame a {{ profile.email }}</mat-list-item
+        >
+        <mat-list-item align="center"
+          >País: {{ profile.nacionalidad }}</mat-list-item
+        >
+      </mat-list>
+
+      <mat-divider></mat-divider>
+
+      <h3>
+        Fecha de Nacimiento:
+        <strong>{{ profile.fechanacimiento }}</strong>
+      </h3>
+
+      <mat-card-content>
+        <mat-icon>code</mat-icon>
+      </mat-card-content>
+
+      <mat-chip-list>
+        <mat-chip color="primary" selected
+          >{{ profile.public_repos }} Public Repos</mat-chip
+        >
+        <mat-chip color="accent" selected
+          >{{ profile.public_gist }} Public Gist</mat-chip
+        >
+        <mat-chip color="accent" selected
+          >{{ profile.followers }} Followers</mat-chip
+        >
+        <mat-chip color="accent" selected
+          >{{ profile.following }} Following</mat-chip
+        >
+      </mat-chip-list>
+    </mat-card>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+<section class="card p-4">
+  <div class="d-flex justify-content-center" id="habilidad">
+    <h1 class="header-s">Habilidades</h1>
+  </div>
+  <div class>
+    <ul *ngFor="let hab of miHabilidad">
+      <div class="d-flex justify-content-between flex-column">
+        <h2>{{ hab.habilidad }}</h2>
+
+        <div class="progress">
+          <div
+            class="progress-bar progress-bar-striped progress-bar-animated massive-font"
+            role="progressbar"
+            attr.aria-valuenow="{{ hab.porcentaje_habilidad }}"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            [ngStyle]="{ width: hab.porcentaje_habilidad + '%' }"
+          >
+            {{ hab.porcentaje_habilidad }}%
+          </div>
+        </div>
+      </div>
+    </ul>
+  </div>
+</section>
