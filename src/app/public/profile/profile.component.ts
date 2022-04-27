@@ -15,6 +15,7 @@ registerLocaleData(localeEs, 'es');
 export class ProfileComponent implements OnInit {
   repos: any;
   profile: any;
+  foto_perfil: any;
   username = 'jgromerou';
 
   constructor(
@@ -30,10 +31,24 @@ export class ProfileComponent implements OnInit {
     });
   }
 
-  /* private getProfileInfo() {
-    return this.http.get('https://api.github.com/users/' + this.username);
-  } */
-  /* private getProfileInfo() {
-    return this.http.get('http://localhost:8080/api/persona/traer');
-  } */
+  ngAfterViewInit() {
+    this.datosProfile.obtenerFotoPerfil().subscribe((data) => {
+      this.createImageFromBlob(data);
+    });
+  }
+
+  createImageFromBlob(image: Blob) {
+    let reader = new FileReader();
+    reader.addEventListener(
+      'load',
+      () => {
+        this.foto_perfil = reader.result;
+      },
+      false
+    );
+
+    if (image) {
+      reader.readAsDataURL(image);
+    }
+  }
 }

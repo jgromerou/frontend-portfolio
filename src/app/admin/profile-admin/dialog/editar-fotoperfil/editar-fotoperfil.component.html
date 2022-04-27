@@ -1,0 +1,26 @@
+<h1 mat-dialog-title>Editar Foto de Perfil</h1>
+<h3>{{ data }}</h3>
+<!-- <h3 mat-dialog-title>ID Curso: {{ data }}</h3> -->
+<img [src]="data.fotoperfil" class="avatar" alt="Foto de Perfil" />
+<div>
+  <!--  <button type="button" mat-raised-button (click)="fileInput.click()">
+    Seleccione imagen...
+  </button>
+  <input hidden (change)="onFileSelected()" #fileInput type="file" id="file" /> -->
+  <div class="mb-3">
+    <label for="formFile" class="form-label">Default file input example</label>
+    <input
+      class="form-control"
+      type="file"
+      id="file"
+      (change)="handleFileInput($event)"
+    />
+    />
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancelar</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>
+    Modificar
+  </button>
+</div>

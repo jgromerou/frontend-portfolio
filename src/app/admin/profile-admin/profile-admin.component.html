@@ -1,8 +1,27 @@
 <div class="center pos">
   <div class="background" *ngIf="profile">
     <mat-card class="bio">
-      <img [src]="foto_perfil" class="avatar" />
-
+      <img
+        [src]="foto_perfil"
+        class="avatar"
+        alt="Place image title"
+        *ngIf="isImageLoading"
+      />
+      <!-- <ng-template #noImageFound>
+        <img src="noImage.webp" alt="noImage" />
+      </ng-template> -->
+      <button
+        mat-icon-button
+        class="margin"
+        aria-label="Icono editar"
+        type="button"
+        mat-raised-button
+        color="accent"
+        matTooltip="EditarFotoperfil"
+        (click)="openDialogEditarFotoperfil(foto_perfil)"
+      >
+        <mat-icon>edit</mat-icon>
+      </button>
       <mat-card-header>
         <mat-card-title>{{
           profile.nombres + " " + profile.apellidos

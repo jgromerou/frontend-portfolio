@@ -40,7 +40,7 @@ export class LoginComponent {
         console.log('DATA' + JSON.stringify(data));
         this.tokenStorage.saveToken(data.accessToken);
         /*  this.tokenStorage.saveUser(data); */
-        this.ruta.navigate(['/homepage']);
+        this.ruta.navigate(['/admin']);
         this.isLoginFailed = false;
         this.roles = this.tokenStorage.getUser().roles;
         // this.reloadPage();

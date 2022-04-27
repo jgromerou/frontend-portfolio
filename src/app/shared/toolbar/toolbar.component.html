@@ -10,7 +10,7 @@
     </button>
   </div>
 
-  <span>PORTFOLIO DE JUAN GERARDO ROMERO URO</span>
+  <span>PORTFOLIO</span>
   <span class="spacer"></span>
   <div class="redes face">
     <a href="https://www.facebook.com/gerardoromerouro" target="_blank"
@@ -57,43 +57,121 @@
 <mat-sidenav-container fxFlexFill>
   <mat-sidenav #sidenav="matSidenav" fxLayout="column" closed="true">
     <div fxLayout="column">
-      <a mat-button class="menu-button" href="#profile">
-        <mat-icon class="fab fa-instagram">account_circle</mat-icon>
+      <!-- BOTÓN DE  PUBLIC PROFILE-->
+      <a
+        *ngIf="!authService.isLoggedIn"
+        mat-button
+        class="menu-button"
+        href="#profile"
+      >
+        <mat-icon>account_circle</mat-icon>
         <span>homepage</span>
       </a>
-
+      <!-- BOTÓN DE ADMIN PROFILE-->
+      <a
+        *ngIf="!authService.isLoggedIn"
+        mat-button
+        class="menu-button"
+        href="/admin#profile-admin"
+      >
+        <mat-icon>account_circle</mat-icon>
+        <span>homepage-admin</span>
+      </a>
       <mat-divider></mat-divider>
       <div fxLayout="column">
+        <!-- BOTÓN DE PUBLIC PROYECTOS-->
         <a
+          *ngIf="!authService.isLoggedIn"
           mat-button
           class="menu-button"
-          aria-label="Example icon-button with share icon"
+          aria-label="Icono de proyecto"
           href="#proyectos"
         >
           <mat-icon>menu_book</mat-icon><span>Proyectos</span>
         </a>
       </div>
+      <!-- BOTÓN DE ADMIN PROYECTOS-->
+      <a
+        *ngIf="!authService.isLoggedIn"
+        mat-button
+        class="menu-button"
+        aria-label="Icono de proyecto"
+        href="/admin#proyectos-admin"
+      >
+        <mat-icon>menu_book</mat-icon>
+        <span>proyectos-admin</span>
+      </a>
 
       <mat-divider></mat-divider>
+      <!-- BOTÓN DE PUBLIC HABILIDADES-->
       <div fxLayout="column">
         <a
+          *ngIf="!authService.isLoggedIn"
           mat-button
           class="menu-button"
-          aria-label="Example icon-button with share icon"
+          aria-label="Icono de habilidades"
           href="#habilidad"
         >
           <mat-icon>align_horizontal_left</mat-icon><span>Habilidades</span>
         </a>
+        <!-- BOTÓN DE ADMIN HABILIDADES-->
+        <a
+          *ngIf="!authService.isLoggedIn"
+          mat-button
+          class="menu-button"
+          aria-label="Icono de habilidades"
+          href="/admin#habilidad-admin"
+        >
+          <mat-icon>align_horizontal_left</mat-icon>
+          <span>habilidades-admin</span>
+        </a>
       </div>
       <mat-divider></mat-divider>
       <div fxLayout="column">
+        <!-- BOTÓN DE PUBLIC EDUCACION-->
         <a
+          *ngIf="!authService.isLoggedIn"
           mat-button
           class="menu-button"
-          aria-label="Example icon-button with share icon"
-          href="#habilidad"
+          aria-label="Icono de Educacion"
+          href="#educacion"
         >
           <mat-icon>school</mat-icon><span>Educacion</span>
+        </a>
+        <!-- BOTÓN DE ADMIN EDUCACION-->
+        <a
+          *ngIf="!authService.isLoggedIn"
+          mat-button
+          class="menu-button"
+          aria-label="Icono de Educacion"
+          href="/admin#educacion-admin"
+        >
+          <mat-icon>school</mat-icon>
+          <span>educacion-admin</span>
+        </a>
+      </div>
+      <mat-divider></mat-divider>
+      <div fxLayout="column">
+        <!-- BOTÓN DE PUBLIC Experiencias Laborales-->
+        <a
+          *ngIf="!authService.isLoggedIn"
+          mat-button
+          class="menu-button"
+          aria-label="Icono de Exp Laboral"
+          href="#explaborales"
+        >
+          <mat-icon>school</mat-icon><span>Experiencias Laborales</span>
+        </a>
+        <!-- BOTÓN DE ADMIN EXPERIENCIAS LABORALES-->
+        <a
+          *ngIf="!authService.isLoggedIn"
+          mat-button
+          class="menu-button"
+          aria-label="Icono de explaborales"
+          href="/admin#explaborales-admin"
+        >
+          <mat-icon>school</mat-icon>
+          <span>explaborales-admin</span>
         </a>
       </div>
     </div>

@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { DashboardAdminComponent } from './admin/dashboard-admin/dashboard-admin.component';
 import { HomepageComponent } from './shared/homepage/homepage.component';
 import { LoginComponent } from './shared/login/login.component';
 
 const routes: Routes = [
   {
-    path: 'homepage',
+    path: '',
     component: HomepageComponent,
   },
   {
@@ -13,9 +14,13 @@ const routes: Routes = [
     component: LoginComponent,
   },
   {
+    path: 'admin',
+    component: DashboardAdminComponent,
+  },
+  {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'homepage',
+    redirectTo: 'dashboard',
   },
 ];
 
