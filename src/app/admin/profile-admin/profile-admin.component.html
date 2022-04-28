@@ -1,12 +1,7 @@
 <div class="center pos">
   <div class="background" *ngIf="profile">
     <mat-card class="bio">
-      <img
-        [src]="foto_perfil"
-        class="avatar"
-        alt="Place image title"
-        *ngIf="isImageLoading"
-      />
+      <img [src]="foto_perfil" class="avatar" />
       <!-- <ng-template #noImageFound>
         <img src="noImage.webp" alt="noImage" />
       </ng-template> -->

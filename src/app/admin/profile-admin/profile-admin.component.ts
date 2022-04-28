@@ -1,13 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import localeEs from '@angular/common/locales/es';
 import { registerLocaleData } from '@angular/common';
-/* import { LogindialogComponent } from '../logindialog/logindialog.component'; */
 import { ProfileService } from 'src/app/services/profile.service';
+import { MatDialog } from '@angular/material/dialog';
 import { EditarFotoperfilComponent } from './dialog/editar-fotoperfil/editar-fotoperfil.component';
 registerLocaleData(localeEs, 'es');
-
-import { MatDialog } from '@angular/material/dialog';
-import { Fotoperfil } from 'src/app/models/fotoperfil';
 
 @Component({
   selector: 'app-profile-admin',
@@ -18,9 +15,7 @@ export class ProfileAdminComponent implements OnInit {
   repos: any;
   profile: any;
   foto_perfil: any;
-  isImageLoading!: boolean;
   username = 'jgromerou';
-  cosa = 'uploads/aguila__1280x720202204270928.jpg';
 
   constructor(private datosProfile: ProfileService, public dialog: MatDialog) {}
 
@@ -28,15 +23,15 @@ export class ProfileAdminComponent implements OnInit {
     this.datosProfile.obtenerDatos().subscribe((data) => {
       this.profile = data[0];
       console.log('Mis datos', this.profile);
-      console.log('profile', this.profile.fotoPerfil);
+      this.datosProfile
+        .obtenerFotoPerfil(this.profile.fotoPerfil)
+        .subscribe((data) => {
+          this.createImageFromBlob(data);
+        });
     });
   }
 
-  ngAfterViewInit() {
-    this.datosProfile.obtenerFotoPerfil().subscribe((data) => {
-      this.createImageFromBlob(data);
-    });
-  }
+  ngAfterViewInit() {}
 
   createImageFromBlob(image: Blob) {
     let reader = new FileReader();
@@ -48,9 +43,9 @@ export class ProfileAdminComponent implements OnInit {
       false
     );
 
-    /* if (image) {
+    if (image) {
       reader.readAsDataURL(image);
-    } */
+    }
   }
 
   openDialogEditarFotoperfil(foto_perfil: any) {

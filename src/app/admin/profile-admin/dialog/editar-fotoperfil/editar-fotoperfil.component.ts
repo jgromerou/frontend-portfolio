@@ -17,6 +17,7 @@ export class EditarFotoperfilComponent {
   dataSource: any;
   srcResult: any;
   fileToUpload: any;
+  isLoadImage: boolean = true;
   newfotoperfil: any;
 
   constructor(
@@ -32,23 +33,19 @@ export class EditarFotoperfilComponent {
 
   onNoClick(): void {
     this.dialogRef.close();
-  }
-
-  onFileSelected() {
-    const inputNode: any = document.querySelector('#file');
-
-    if (typeof FileReader !== 'undefined') {
-      const reader = new FileReader();
-
-      reader.onload = (e: any) => {
-        this.data.fotoperfil = e.target.result;
-      };
-
-      reader.readAsArrayBuffer(inputNode.files[0]);
-    }
+    this.isLoadImage = true;
   }
 
   handleFileInput(event: any) {
+    this.isLoadImage = false;
+    if (event.target.files && event.target.files[0]) {
+      var reader = new FileReader();
+      reader.onload = (event: any) => {
+        this.newfotoperfil = event.target.result;
+      };
+      reader.readAsDataURL(event.target.files[0]);
+    }
+    ////////////////////////////////
     this.data.fotoperfil = event.target.files[0];
   }
 }

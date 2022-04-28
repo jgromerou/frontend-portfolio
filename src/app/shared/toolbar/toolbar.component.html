@@ -59,7 +59,7 @@
     <div fxLayout="column">
       <!-- BOTÓN DE  PUBLIC PROFILE-->
       <a
-        *ngIf="!authService.isLoggedIn"
+        *ngIf="authService.isLoggedIn"
         mat-button
         class="menu-button"
         href="#profile"
@@ -69,7 +69,7 @@
       </a>
       <!-- BOTÓN DE ADMIN PROFILE-->
       <a
-        *ngIf="!authService.isLoggedIn"
+        *ngIf="authService.isLoggedIn"
         mat-button
         class="menu-button"
         href="/admin#profile-admin"

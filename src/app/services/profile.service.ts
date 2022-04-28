@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class ProfileService {
   url: string = 'http://localhost:8080/api/';
+  linkfoto!: string;
 
   constructor(private http: HttpClient) {}
 
@@ -14,13 +15,10 @@ export class ProfileService {
     return this.http.get<any>(this.url + 'persona/traer');
   }
 
-  obtenerFotoPerfil(): Observable<any> {
-    return this.http.get<any>(
-      this.url + 'test/filesget/uploads/aguila__1280x720202204270928.jpg',
-      {
-        responseType: 'Blob' as 'json',
-      }
-    );
+  obtenerFotoPerfil(linkfoto: string): Observable<any> {
+    return this.http.get<any>(this.url + `test/filesget/${linkfoto}`, {
+      responseType: 'Blob' as 'json',
+    });
   }
 
   guardarFoto(fotoperfil: any) {
