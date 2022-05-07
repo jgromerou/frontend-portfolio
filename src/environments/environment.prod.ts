@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  URL_SERVICIOS: 'https://backendargentinaprograma.herokuapp.com/api',
 };

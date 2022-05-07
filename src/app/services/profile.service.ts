@@ -1,22 +1,23 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProfileService {
-  url: string = 'http://localhost:8080/api/';
+  url: string = `${environment.URL_SERVICIOS}`;
   linkfoto!: string;
 
   constructor(private http: HttpClient) {}
 
   obtenerDatos(): Observable<any> {
-    return this.http.get<any>(this.url + 'persona/traer');
+    return this.http.get<any>(this.url + '/persona/traer');
   }
 
   obtenerFotoPerfil(linkfoto: string): Observable<any> {
-    return this.http.get<any>(this.url + `test/filesget/${linkfoto}`, {
+    return this.http.get<any>(this.url + `/test/filesget/${linkfoto}`, {
       responseType: 'Blob' as 'json',
     });
   }
@@ -24,6 +25,6 @@ export class ProfileService {
   guardarFoto(fotoperfil: any) {
     const formData = new FormData();
     formData.append('file', fotoperfil);
-    return this.http.post(this.url + `test/upload/`, formData);
+    return this.http.post(this.url + `/test/upload/`, formData);
   }
 }

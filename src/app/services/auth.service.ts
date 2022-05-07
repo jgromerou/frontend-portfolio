@@ -1,13 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, map, Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   isLoggedIn!: boolean;
-  url = 'http://localhost:8080/api/auth/login';
+  url = `${environment.URL_SERVICIOS}/auth/login`;
   currentUserSubject: BehaviorSubject<any>;
   constructor(private http: HttpClient) {
     console.log('El servicio de autenticacion está corriendo');
