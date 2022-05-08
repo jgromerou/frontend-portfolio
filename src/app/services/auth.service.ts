@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { BehaviorSubject, map, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
@@ -10,7 +11,7 @@ export class AuthService {
   isLoggedIn!: boolean;
   url = `${environment.URL_SERVICIOS}/auth/login`;
   currentUserSubject: BehaviorSubject<any>;
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private ruta: Router) {
     console.log('El servicio de autenticacion está corriendo');
     this.currentUserSubject = new BehaviorSubject<any>(
       JSON.parse(sessionStorage.getItem('currentUser') || '{}')
@@ -30,7 +31,8 @@ export class AuthService {
 
   CerrarSesion(): void {
     this.isLoggedIn = false;
-    console.log('llegué');
+    this.ruta.navigate(['login']);
+    console.log('Se cerró la sesión');
   }
 
   get UsuarioAuth() {

@@ -12,6 +12,10 @@ import { SharedModule } from '../shared/shared.module';
 import { AppMaterialModule } from '../modules/app.material.module';
 import { EditarFotoperfilComponent } from './profile-admin/dialog/editar-fotoperfil/editar-fotoperfil.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EditarHabilidadComponent } from './habilidad-admin/dialog/editar-habilidad/editar-habilidad.component';
+import { NuevaHabilidadComponent } from './habilidad-admin/dialog/nueva-habilidad/nueva-habilidad.component';
+import { BorrarHabilidadComponent } from './habilidad-admin/dialog/borrar-habilidad/borrar-habilidad.component';
+import { CoreModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -22,6 +26,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ProyectoAdminComponent,
     ProfileAdminComponent,
     EditarFotoperfilComponent,
+    EditarHabilidadComponent,
+    NuevaHabilidadComponent,
+    BorrarHabilidadComponent,
   ],
   imports: [
     CommonModule,
@@ -30,6 +37,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AppMaterialModule,
     FormsModule,
     ReactiveFormsModule,
+    CoreModule,
   ],
   exports: [
     DashboardAdminComponent,
@@ -38,6 +46,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HabilidadAdminComponent,
     ProyectoAdminComponent,
     ProfileAdminComponent,
+    EditarHabilidadComponent,
+    NuevaHabilidadComponent,
+    BorrarHabilidadComponent,
   ],
 })
 export class AdminModule {}

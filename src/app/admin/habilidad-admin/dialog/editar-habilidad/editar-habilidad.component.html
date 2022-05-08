@@ -1,0 +1,36 @@
+<h1 mat-dialog-title>Editar Habilidad</h1>
+<h3 mat-dialog-title>ID Habilidad: {{ data.idHabilidad }}</h3>
+<div mat-dialog-content align="center">
+  <mat-form-field appearance="fill">
+    <mat-label>Habilidad</mat-label>
+    <input
+      matInput
+      #input
+      class="form-control"
+      placeholder="Habilidad"
+      [(ngModel)]="data.habilidad"
+      name="habilidad"
+      required
+    />
+    <mat-error *ngIf="formControl.invalid">{{ getError() }}</mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Porcentaje Habilidad</mat-label>
+    <input
+      matInput
+      #input
+      class="form-control"
+      placeholder="Descripción"
+      [(ngModel)]="data.porcentaje_habilidad"
+      name="porcentaje_habilidad"
+      required
+    />
+    <mat-error *ngIf="formControl.invalid">{{ getError() }}</mat-error>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancelar</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>
+    Modificar
+  </button>
+</div>

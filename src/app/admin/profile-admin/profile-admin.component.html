@@ -21,11 +21,10 @@
         <mat-card-title>{{
           profile.nombres + " " + profile.apellidos
         }}</mat-card-title>
-        <mat-card-subtitle>{{ profile.acercade }}</mat-card-subtitle>
       </mat-card-header>
 
       <h3>Telefono: {{ profile.telefono }}</h3>
-      <h3>Estado Civil: {{ profile.domicilio }}</h3>
+      <h3>Estado Civil: {{ profile.estadocivil }}</h3>
       <h3>Contactame a {{ profile.email }}</h3>
       <h3>Vivo en {{ profile.domicilio }}, {{ profile.nacionalidad }}</h3>
 
@@ -36,6 +35,14 @@
         <strong>{{ profile.fechanacimiento }}</strong>
       </h3>
 
+      <mat-divider></mat-divider>
+
+      <h2>
+        Acerca de mi:
+        <mat-card-subtitle
+          ><strong>{{ profile.acercade }}</strong></mat-card-subtitle
+        >
+      </h2>
       <!-- <mat-card-content>
         <mat-icon>code</mat-icon>
       </mat-card-content> -->
