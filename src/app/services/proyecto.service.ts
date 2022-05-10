@@ -6,8 +6,8 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root',
 })
-export class HabilidadService {
-  habilidadSubject = new Subject<any>();
+export class ProyectoService {
+  proyectoSubject = new Subject<any>();
   TOKEN_KEY = 'auth-token';
   token: string = '';
 
@@ -15,13 +15,13 @@ export class HabilidadService {
   constructor(private http: HttpClient) {}
 
   obtenerDatos(): Observable<any> {
-    return this.http.get<any>(this.url + '/habilidad/traer');
+    return this.http.get<any>(this.url + '/proyecto/traer');
   }
 
-  nuevaHabilidad(hab: any): Observable<any> {
+  nuevoProyecto(proy: any): Observable<any> {
     this.token = window.sessionStorage.getItem(this.TOKEN_KEY)!;
     return this.http
-      .post(this.url + `/habilidad/crear`, hab, {
+      .post(this.url + `/proyecto/crear`, proy, {
         headers: {
           Authorization: `Bearer ${this.token}`,
         },
@@ -32,7 +32,7 @@ export class HabilidadService {
           // Log the result or error
           {
             next: () => {
-              this.habilidadSubject.next(hab);
+              this.proyectoSubject.next(proy);
             },
             error: (error) => {
               console.log(error);
@@ -42,10 +42,10 @@ export class HabilidadService {
       );
   }
 
-  editarHabilidad(hab: any): Observable<any> {
+  editarProyecto(proy: any): Observable<any> {
     this.token = window.sessionStorage.getItem(this.TOKEN_KEY)!;
     return this.http
-      .put(this.url + `/habilidad/editar/${hab.idHabilidad}`, hab, {
+      .put(this.url + `/proyecto/editar/${proy.idProyecto}`, proy, {
         headers: {
           Authorization: `Bearer ${this.token}`,
         },
@@ -55,7 +55,7 @@ export class HabilidadService {
           // Log the result or error
           {
             next: () => {
-              this.habilidadSubject.next(hab);
+              this.proyectoSubject.next(proy);
             },
             error: (error) => {
               console.log(error);
@@ -65,10 +65,10 @@ export class HabilidadService {
       );
   }
 
-  borrarHabilidad(hab: any): Observable<any> {
+  borrarProyecto(proy: any): Observable<any> {
     this.token = window.sessionStorage.getItem(this.TOKEN_KEY)!;
     return this.http
-      .delete(this.url + `/habilidad/borrar/${hab.idHabilidad}`, {
+      .delete(this.url + `/proyecto/borrar/${proy.idProyecto}`, {
         headers: {
           Authorization: `Bearer ${this.token}`,
         },
@@ -79,7 +79,7 @@ export class HabilidadService {
           // Log the result or error
           {
             next: () => {
-              this.habilidadSubject.next(hab);
+              this.proyectoSubject.next(proy);
             },
             error: (error) => {
               console.log(error);

@@ -1,13 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, Subject, tap } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+import { Observable, Subject, Subscription, tap } from 'rxjs';
+import { AuthService } from 'src/app/services/auth.service';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
-export class HabilidadService {
-  habilidadSubject = new Subject<any>();
+export class EducacionService {
+  educacionSubject = new Subject<any>();
   TOKEN_KEY = 'auth-token';
   token: string = '';
 
@@ -15,13 +18,13 @@ export class HabilidadService {
   constructor(private http: HttpClient) {}
 
   obtenerDatos(): Observable<any> {
-    return this.http.get<any>(this.url + '/habilidad/traer');
+    return this.http.get<any>(this.url + '/educacion/traer');
   }
 
-  nuevaHabilidad(hab: any): Observable<any> {
+  nuevaEducacion(educ: any): Observable<any> {
     this.token = window.sessionStorage.getItem(this.TOKEN_KEY)!;
     return this.http
-      .post(this.url + `/habilidad/crear`, hab, {
+      .post(this.url + `/educacion/crear`, educ, {
         headers: {
           Authorization: `Bearer ${this.token}`,
         },
@@ -32,7 +35,7 @@ export class HabilidadService {
           // Log the result or error
           {
             next: () => {
-              this.habilidadSubject.next(hab);
+              this.educacionSubject.next(educ);
             },
             error: (error) => {
               console.log(error);
@@ -42,10 +45,10 @@ export class HabilidadService {
       );
   }
 
-  editarHabilidad(hab: any): Observable<any> {
+  editarEducacion(educ: any): Observable<any> {
     this.token = window.sessionStorage.getItem(this.TOKEN_KEY)!;
     return this.http
-      .put(this.url + `/habilidad/editar/${hab.idHabilidad}`, hab, {
+      .put(this.url + `/educacion/editar/${educ.idEducacion}`, educ, {
         headers: {
           Authorization: `Bearer ${this.token}`,
         },
@@ -55,7 +58,7 @@ export class HabilidadService {
           // Log the result or error
           {
             next: () => {
-              this.habilidadSubject.next(hab);
+              this.educacionSubject.next(educ);
             },
             error: (error) => {
               console.log(error);
@@ -65,10 +68,10 @@ export class HabilidadService {
       );
   }
 
-  borrarHabilidad(hab: any): Observable<any> {
+  borrarEducacion(educ: any): Observable<any> {
     this.token = window.sessionStorage.getItem(this.TOKEN_KEY)!;
     return this.http
-      .delete(this.url + `/habilidad/borrar/${hab.idHabilidad}`, {
+      .delete(this.url + `/educacion/borrar/${educ.idEducacion}`, {
         headers: {
           Authorization: `Bearer ${this.token}`,
         },
@@ -79,7 +82,7 @@ export class HabilidadService {
           // Log the result or error
           {
             next: () => {
-              this.habilidadSubject.next(hab);
+              this.educacionSubject.next(educ);
             },
             error: (error) => {
               console.log(error);

@@ -1,1 +1,52 @@
-<p>educacion-admin works!</p>
+<!--EDUCACIÓN-->
+
+<section class="card m-2 p-4">
+  <div class="d-flex justify-content-center my-2" id="education">
+    <h2><span>Educación</span></h2>
+  </div>
+  <mat-divider></mat-divider>
+  <!--Botón Nueva Educación-->
+  <div class="outerDiv">
+    <!--Botón Nuevo-->
+    <button
+      *ngIf="authService.isAdmin"
+      type="button"
+      class="btn btn-primary save"
+      (click)="openDialogNuevo()"
+    >
+      Nueva Habilidad
+    </button>
+  </div>
+  <!--Entrada-->
+  <div
+    class="d-flex justify-content-center mb-2"
+    *ngFor="let educ of educacion$ | async"
+  >
+    <img
+      src="assets/ap borde.png"
+      alt=""
+      style="width: 60px; height: auto"
+      class="align-self-start"
+    />
+    <div class="mx-3 header-s">
+      <h2>
+        <span>{{ educ.institucion }}</span>
+      </h2>
+      <p class="my-0">{{ educ.instituto }}</p>
+      <p class="text-secondary">
+        {{ educ.fechaInicio | date }} -
+        {{ educ.fechaFin | date }}
+      </p>
+      <p class="my-0">Porcentaje: {{ educ.porcentaje_carrera }} %</p>
+      <hr />
+    </div>
+    <div>
+      <button type="button" class="btn size-icon">
+        <i class="bi bi-pencil-square iconos"></i>
+      </button>
+      <button type="button" class="btn size-icon">
+        <i class="bi bi-trash3 iconos"></i>
+      </button>
+    </div>
+  </div>
+</section>

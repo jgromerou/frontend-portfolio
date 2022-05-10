@@ -14,7 +14,7 @@
     <a href="https://argentinaprograma.inti.gob.ar/"
       ><img class="image" src="../../../assets/APLogo-20-20.png"
     /></a>
-    <span>ARGENTINA PROGRAMA - #YO PROGRAMO</span>
+    <span>#YO PROGRAMO</span>
   </div>
   <span class="spacer"></span>
   <div class="redes face">
@@ -51,10 +51,10 @@
   </a> -->
 
   <!-- <a mat-button [routerLink]="login">Mi perfil</a> -->
-  <button mat-button *ngIf="!authService.isLoggedIn" (click)="irLogin()">
+  <button mat-button *ngIf="!authService.isAdmin" (click)="irLogin()">
     Login
   </button>
-  <button mat-button *ngIf="authService.isLoggedIn" (click)="logout()">
+  <button mat-button *ngIf="authService.isAdmin" (click)="logout()">
     Cerrar Sesion
   </button>
 </mat-toolbar>

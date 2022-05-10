@@ -1,1 +1,62 @@
-<p>proyecto-admin works!</p>
+<!--PROYECTOS-->
+<!-- <section class="card m-2 p-4">
+  <div class="d-flex my-2" id="projects">
+    <h3>Proyectos</h3>
+  </div>
+
+  <div class="d-flex mb-2 flex-row" *ngFor="let proy of proyectos$ | async">
+    <div class="d-flex col-3">
+      <div class="mx-3">
+        <a href=""
+          ><h4>{{ proy.proyecto }}</h4></a
+        >
+        <p class="my-0 text-secondary">
+          {{ proy.tecnologia }}
+        </p>
+        <hr />
+      </div>
+    </div>
+    <div>
+      <button type="button" class="btn col-1">
+        <i class="bi bi-pencil-square iconos"></i>
+      </button>
+      <button type="button" class="btn col-1">
+        <i class="bi bi-trash3 iconos"></i>
+      </button>
+    </div>
+  </div>
+</section> -->
+<div class="container">
+  <h1 class="header-s">PROYECTOS</h1>
+  <div class="grid">
+    <mat-card class="grid-item-anim" *ngFor="let proy of proyectos$ | async">
+      <mat-card-header>
+        <!-- <div mat-card-avatar></div> -->
+        <mat-card-title>{{ proy.proyecto }}</mat-card-title>
+        <mat-card-subtitle>{{ proy.tecnologia }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-actions class="center d-flex justify-content-center">
+        <div>
+          <!--Icono Editar-->
+          <button
+            type="button"
+            class="btn size-icon"
+            (click)="openDialogEditar(proy)"
+          >
+            <i class="bi bi-pencil-square iconos"></i>
+          </button>
+        </div>
+        <!--Icono Eliminar-->
+        <div>
+          <button
+            type="button"
+            class="btn size-icon"
+            (click)="openDialogBorrar(proy)"
+          >
+            <i class="bi bi-trash3 iconos"></i>
+          </button>
+        </div>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

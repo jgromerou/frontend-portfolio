@@ -8,6 +8,7 @@ import {
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { TokenLocalstorageService } from 'src/app/services/token-localstorage.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -46,9 +47,13 @@ export class LoginComponent {
         // this.reloadPage();
       },
       (err) => {
-        this.errorMessage = err.error.message;
-        this.isLoginFailed = true;
-        console.log(this.errorMessage, 'Mensaje de error logueo');
+        console.log('Error de autenticación');
+        Swal.fire({
+          icon: 'error',
+          title: 'Error de credenciales',
+          text: 'Error de credenciales',
+          confirmButtonColor: '#0D47A1',
+        });
       }
     );
   }
