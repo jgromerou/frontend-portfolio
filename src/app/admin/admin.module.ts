@@ -15,7 +15,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditarHabilidadComponent } from './habilidad-admin/dialog/editar-habilidad/editar-habilidad.component';
 import { NuevaHabilidadComponent } from './habilidad-admin/dialog/nueva-habilidad/nueva-habilidad.component';
 import { BorrarHabilidadComponent } from './habilidad-admin/dialog/borrar-habilidad/borrar-habilidad.component';
-import { CoreModule } from '@angular/flex-layout';
 import { NuevaEducacionComponent } from './educacion-admin/dialog/nueva-educacion/nueva-educacion.component';
 import { EditarEducacionComponent } from './educacion-admin/dialog/editar-educacion/editar-educacion.component';
 import { BorrarEducacionComponent } from './educacion-admin/dialog/borrar-educacion/borrar-educacion.component';
@@ -43,7 +42,6 @@ import { BorrarEducacionComponent } from './educacion-admin/dialog/borrar-educac
     AppMaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    CoreModule,
   ],
   exports: [
     DashboardAdminComponent,

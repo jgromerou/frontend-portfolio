@@ -32,6 +32,9 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { ClipboardModule } from '@angular/cdk/clipboard';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+
+import { MatNativeDateModule, MatRippleModule } from '@angular/material/core';
 
 //const components = [];
 
@@ -67,6 +70,9 @@ const modules = [
   MatButtonToggleModule,
   MatSlideToggleModule,
   ClipboardModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MatRippleModule,
 ];
 
 @NgModule({

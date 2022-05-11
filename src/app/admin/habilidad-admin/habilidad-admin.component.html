@@ -7,16 +7,16 @@
     <button
       *ngIf="authService.isAdmin"
       type="button"
-      class="btn btn-primary save"
+      class="btn btn-primary save my-3"
       (click)="openDialogNuevo()"
     >
       Nueva Habilidad
     </button>
   </div>
-  <div class>
-    <ul *ngFor="let hab of miHabilidad$ | async">
+  <div>
+    <ul *ngFor="let hab of miHabilidad$ | async" class="mb-2 card">
       <h2>{{ hab.habilidad }}</h2>
-      <div class="d-flex flex-row align-items-center">
+      <div class="d-flex flex-row align-items-center mb-4">
         <div class="progress col-9 margin-y">
           <div
             class="progress-bar progress-bar-striped progress-bar-animated massive-font"

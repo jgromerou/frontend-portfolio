@@ -43,22 +43,22 @@ export class EducacionAdminComponent implements OnInit {
       width: '300px',
       panelClass: 'makeItMiddle',
       data: {
-        habilidad: '',
-        porcentaje_habilidad: '',
+        institucion: '',
+        titulo: '',
+        fechaInicio: '',
+        fechaFin: '',
+        porcentaje_carrera: '',
         persona: 1,
       },
     });
 
     dialogRef.afterClosed().subscribe((result: any) => {
       console.log('El Dialog se ha cerrado');
-      if (result !== undefined) {
-        this.datosEducacion.nuevaEducacion(result).subscribe((resp: any) => {
-          this.ruta.navigate(['admin']);
-          return;
-        });
-      } else {
-        this.ruta.navigate(['login']);
-      }
+
+      this.datosEducacion.nuevaEducacion(result).subscribe((resp: any) => {
+        this.ruta.navigate(['admin']);
+        return;
+      });
     });
   }
 
@@ -75,14 +75,11 @@ export class EducacionAdminComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result: any) => {
       console.log('El Dialog se ha cerrado');
-      if (result !== undefined) {
-        this.datosEducacion.editarEducacion(result).subscribe((resp: any) => {
-          this.ruta.navigate(['admin']);
-          return;
-        });
-      } else {
-        this.ruta.navigate(['login']);
-      }
+
+      this.datosEducacion.editarEducacion(result).subscribe((resp: any) => {
+        this.ruta.navigate(['admin']);
+        return;
+      });
     });
   }
 
@@ -100,13 +97,10 @@ export class EducacionAdminComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result: any) => {
       console.log('El Dialog se ha cerrado');
       this.ruta.navigate(['admin']);
-      if (result !== undefined) {
-        this.datosEducacion.borrarEducacion(result).subscribe((resp: any) => {
-          return;
-        });
-      } else {
-        this.ruta.navigate(['login']);
-      }
+
+      this.datosEducacion.borrarEducacion(result).subscribe((resp: any) => {
+        return;
+      });
     });
   }
 }

@@ -49,14 +49,10 @@ export class ProyectoAdminComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result: any) => {
       console.log('El Dialog se ha cerrado');
-      if (result !== undefined) {
-        this.datosProyectos.editarProyecto(result).subscribe((resp: any) => {
-          this.ruta.navigate(['admin']);
-          return;
-        });
-      } else {
-        this.ruta.navigate(['login']);
-      }
+      this.datosProyectos.editarProyecto(result).subscribe((resp: any) => {
+        this.ruta.navigate(['admin']);
+        return;
+      });
     });
   }
 
@@ -73,14 +69,11 @@ export class ProyectoAdminComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result: any) => {
       console.log('El Dialog se ha cerrado');
-      this.ruta.navigate(['admin']);
-      if (result !== undefined) {
-        this.datosProyectos.borrarProyecto(result).subscribe((resp: any) => {
-          return;
-        });
-      } else {
-        this.ruta.navigate(['login']);
-      }
+
+      this.datosProyectos.borrarProyecto(result).subscribe((resp: any) => {
+        this.ruta.navigate(['admin']);
+        return;
+      });
     });
   }
 }

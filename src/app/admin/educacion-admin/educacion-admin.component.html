@@ -6,7 +6,7 @@
   </div>
   <mat-divider></mat-divider>
   <!--Botón Nueva Educación-->
-  <div class="outerDiv">
+  <div class="outerDiv mb-2">
     <!--Botón Nuevo-->
     <button
       *ngIf="authService.isAdmin"
@@ -14,7 +14,7 @@
       class="btn btn-primary save"
       (click)="openDialogNuevo()"
     >
-      Nueva Habilidad
+      Nueva Educación
     </button>
   </div>
   <!--Entrada-->
@@ -28,14 +28,14 @@
       style="width: 60px; height: auto"
       class="align-self-start"
     />
-    <div class="mx-3 header-s">
+    <div class="mx-3 header-s width-card">
       <h2>
         <span>{{ educ.institucion }}</span>
       </h2>
       <p class="my-0">{{ educ.instituto }}</p>
       <p class="text-secondary">
-        {{ educ.fechaInicio | date }} -
-        {{ educ.fechaFin | date }}
+        {{ educ.fechaInicio | date: "dd/MM/yyyy" }} -
+        {{ educ.fechaFin | date: "dd/MM/yyyy" }}
       </p>
       <p class="my-0">Porcentaje: {{ educ.porcentaje_carrera }} %</p>
       <hr />

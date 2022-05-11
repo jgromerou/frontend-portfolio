@@ -50,14 +50,11 @@ export class HabilidadAdminComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result: any) => {
       console.log('El Dialog se ha cerrado');
-      if (result !== undefined) {
-        this.datosHabilidad.nuevaHabilidad(result).subscribe((resp: any) => {
-          this.ruta.navigate(['admin']);
-          return;
-        });
-      } else {
-        this.ruta.navigate(['login']);
-      }
+
+      this.datosHabilidad.nuevaHabilidad(result).subscribe((resp: any) => {
+        this.ruta.navigate(['admin']);
+        return;
+      });
     });
   }
 
@@ -74,14 +71,11 @@ export class HabilidadAdminComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result: any) => {
       console.log('El Dialog se ha cerrado');
-      if (result !== undefined) {
-        this.datosHabilidad.editarHabilidad(result).subscribe((resp: any) => {
-          this.ruta.navigate(['admin']);
-          return;
-        });
-      } else {
-        this.ruta.navigate(['login']);
-      }
+
+      this.datosHabilidad.editarHabilidad(result).subscribe((resp: any) => {
+        this.ruta.navigate(['admin']);
+        return;
+      });
     });
   }
 
@@ -99,13 +93,10 @@ export class HabilidadAdminComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result: any) => {
       console.log('El Dialog se ha cerrado');
       this.ruta.navigate(['admin']);
-      if (result !== undefined) {
-        this.datosHabilidad.borrarHabilidad(result).subscribe((resp: any) => {
-          return;
-        });
-      } else {
-        this.ruta.navigate(['login']);
-      }
+
+      this.datosHabilidad.borrarHabilidad(result).subscribe((resp: any) => {
+        return;
+      });
     });
   }
 }
