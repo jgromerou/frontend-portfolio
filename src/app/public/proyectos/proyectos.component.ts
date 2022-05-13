@@ -1,5 +1,9 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+import { Observable, Subscription } from 'rxjs';
+import { AuthService } from 'src/app/services/auth.service';
+import { ProyectoService } from 'src/app/services/proyecto.service';
 
 @Component({
   selector: 'app-proyectos',
@@ -7,30 +11,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./proyectos.component.scss'],
 })
 export class ProyectosComponent implements OnInit {
-  repos: any;
-  profile: any;
-  username = 'jgromerou';
+  proyectos$!: Observable<any>;
+  proySubscription!: Subscription;
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private datosProyectos: ProyectoService,
+    public dialog: MatDialog,
+    private ruta: Router,
+    public authService: AuthService
+  ) {}
 
-  ngOnInit() {
-    /* this.getProfileInfo().subscribe((profile) => {
-      console.log('Mi perfil:', profile);
-      this.profile = profile;
-    }); */
-    this.getProfileRepos().subscribe((repos) => {
-      console.log('Mi repositorio:', repos);
-      this.repos = repos;
-    });
+  ngOnInit(): void {
+    this.proyectos$ = this.datosProyectos.obtenerDatos();
+    this.proySubscription = this.datosProyectos.proyectoSubject.subscribe(
+      () => {
+        this.proyectos$ = this.datosProyectos.obtenerDatos();
+      }
+    );
   }
 
-  /*  private getProfileInfo() {
-    return this.http.get('https://api.github.com/users/' + this.username);
-  } */
-
-  private getProfileRepos() {
-    return this.http.get(
-      'https://api.github.com/users/' + this.username + '/repos'
-    );
+  ngOnDestroy(): void {
+    this.proySubscription.unsubscribe;
   }
 }

@@ -1,1 +1,47 @@
-<p>explaborales works!</p>
+<!--Experiencias Laborales-->
+<section class="card m-2 p-4">
+  <div class="d-flex justify-content-center my-2" id="explaborales">
+    <h2><span>EXPERIENCIAS LABORALES</span></h2>
+  </div>
+  <mat-divider></mat-divider>
+  <!--Botón Nueva Experiencias Laborales-->
+  <div class="outerDiv mb-2">
+    <button
+      *ngIf="authService.isAdmin"
+      type="button"
+      class="btn btn-primary save"
+      (click)="openDialogNuevo()"
+    >
+      Nueva Experiencia Laboral
+    </button>
+  </div>
+  <!--Entrada-->
+  <div
+    class="d-flex justify-content-center mb-2"
+    *ngFor="let exp of explaborales$ | async"
+  >
+    <div class="mx-1 header-s width-card">
+      <h2>
+        <span>Empresa: {{ exp.empresa }}</span>
+      </h2>
+      <h3 class="my-0"><span>Puesto Laboral:</span> {{ exp.puesto }}</h3>
+      <h3 class="my-0">
+        <span>Descripción de Tareas:</span> {{ exp.descripcionTareas }}
+      </h3>
+      <p class="text-secondary">
+        {{ exp.fechaInicio | date: "dd/MM/yyyy" }} -
+        {{ exp.fechaFin | date: "dd/MM/yyyy" }}
+      </p>
+
+      <hr />
+    </div>
+    <div>
+      <button type="button" class="btn size-icon">
+        <i class="bi bi-pencil-square iconos"></i>
+      </button>
+      <button type="button" class="btn size-icon">
+        <i class="bi bi-trash3 iconos"></i>
+      </button>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,96 @@
+<h1 mat-dialog-title>Nueva Experiencia Laboral</h1>
+<div mat-dialog-content align="center" [formGroup]="form">
+  <mat-form-field appearance="fill">
+    <mat-label>Nombre de la Empresa</mat-label>
+    <input
+      matInput
+      #input
+      placeholder="Nombre de la Empresa"
+      [(ngModel)]="data.empresa"
+      name="empresa"
+      formControlName="empresa"
+      required
+    />
+    <mat-error>
+      <span *ngIf="form.get('empresa')?.invalid" class="error"
+        >El nombre de la empresa es requerido.
+      </span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Puesto Laboral</mat-label>
+    <input
+      matInput
+      #input
+      placeholder="Puesto"
+      [(ngModel)]="data.puesto"
+      name="puesto"
+      formControlName="puesto"
+      required
+    />
+    <mat-error>
+      <span *ngIf="form.get('puesto')?.invalid" class="error"
+        >El puesto Laboral es Requerido
+      </span>
+    </mat-error>
+  </mat-form-field>
+  <!--Descripcion tareas-->
+  <mat-form-field appearance="fill">
+    <mat-label>Descripción de las tareas realizadas</mat-label>
+    <input
+      matInput
+      #input
+      placeholder="Descripción de Tareas"
+      [(ngModel)]="data.descripcionTareas"
+      name="descripcionTareas"
+      formControlName="descripcionTareas"
+      required
+    />
+    <mat-error>
+      <span *ngIf="form.get('descripcionTareas')?.invalid" class="error"
+        >El puesto Laboral es Requerido
+      </span>
+    </mat-error>
+  </mat-form-field>
+  <!--Fecha Inicio-->
+  <mat-form-field color="accent" appearance="fill">
+    <mat-label>Fecha Inicio</mat-label>
+    <input
+      [(ngModel)]="data.fechaInicio"
+      formControlName="fechaInicio"
+      matInput
+      [matDatepicker]="fechaInicio"
+    />
+    <mat-hint>DD/MM/YYYY</mat-hint>
+    <mat-datepicker-toggle
+      matSuffix
+      [for]="fechaInicio"
+    ></mat-datepicker-toggle>
+    <mat-datepicker #fechaInicio></mat-datepicker>
+  </mat-form-field>
+
+  <!--Fecha Fin-->
+  <mat-form-field color="accent" appearance="fill">
+    <mat-label>Fecha Fin</mat-label>
+    <input
+      [(ngModel)]="data.fechaFin"
+      formControlName="fechaFin"
+      matInput
+      [matDatepicker]="fechaFin"
+    />
+    <mat-hint>DD/MM/YYYY</mat-hint>
+    <mat-datepicker-toggle matSuffix [for]="fechaFin"></mat-datepicker-toggle>
+    <mat-datepicker #fechaFin></mat-datepicker>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancelar</button>
+  <button
+    [disabled]="form.invalid"
+    mat-button
+    [mat-dialog-close]="data"
+    cdkFocusInitial
+  >
+    Nuevo
+  </button>
+</div>

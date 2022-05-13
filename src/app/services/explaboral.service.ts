@@ -6,8 +6,8 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root',
 })
-export class EducacionService {
-  educacionSubject = new Subject<any>();
+export class ExplaboralService {
+  explaboralSubject = new Subject<any>();
   TOKEN_KEY = 'auth-token';
   token: string = '';
 
@@ -15,13 +15,13 @@ export class EducacionService {
   constructor(private http: HttpClient) {}
 
   obtenerDatos(): Observable<any> {
-    return this.http.get<any>(this.url + '/educacion/traer');
+    return this.http.get<any>(this.url + '/experiencialaboral/traer');
   }
 
-  nuevaEducacion(educ: any): Observable<any> {
+  nuevaExplaboral(exp: any): Observable<any> {
     this.token = window.sessionStorage.getItem(this.TOKEN_KEY)!;
     return this.http
-      .post(this.url + `/educacion/crear`, educ, {
+      .post(this.url + `/experiencialaboral/crear`, exp, {
         headers: {
           Authorization: `Bearer ${this.token}`,
         },
@@ -32,7 +32,7 @@ export class EducacionService {
           // Log the result or error
           {
             next: () => {
-              this.educacionSubject.next(educ);
+              this.explaboralSubject.next(exp);
             },
             error: (error) => {
               console.log(error);
@@ -42,10 +42,10 @@ export class EducacionService {
       );
   }
 
-  editarEducacion(educ: any): Observable<any> {
+  editarExplaboral(exp: any): Observable<any> {
     this.token = window.sessionStorage.getItem(this.TOKEN_KEY)!;
     return this.http
-      .put(this.url + `/educacion/editar/${educ.idEducacion}`, educ, {
+      .put(this.url + `/experiencialaboral/editar/${exp.idEducacion}`, exp, {
         headers: {
           Authorization: `Bearer ${this.token}`,
         },
@@ -55,7 +55,7 @@ export class EducacionService {
           // Log the result or error
           {
             next: () => {
-              this.educacionSubject.next(educ);
+              this.explaboralSubject.next(exp);
             },
             error: (error) => {
               console.log(error);
@@ -65,10 +65,10 @@ export class EducacionService {
       );
   }
 
-  borrarEducacion(educ: any): Observable<any> {
+  borrarExplaboral(exp: any): Observable<any> {
     this.token = window.sessionStorage.getItem(this.TOKEN_KEY)!;
     return this.http
-      .delete(this.url + `/educacion/borrar/${educ.idEducacion}`, {
+      .delete(this.url + `/experiencialaboral/borrar/${exp.idExplaboral}`, {
         headers: {
           Authorization: `Bearer ${this.token}`,
         },
@@ -79,7 +79,7 @@ export class EducacionService {
           // Log the result or error
           {
             next: () => {
-              this.educacionSubject.next(educ);
+              this.explaboralSubject.next(exp);
             },
             error: (error) => {
               console.log(error);

@@ -7,13 +7,14 @@
         <mat-card-title>{{
           profile.nombres + " " + profile.apellidos
         }}</mat-card-title>
-        <mat-card-subtitle>{{ profile.acercade }}</mat-card-subtitle>
       </mat-card-header>
 
       <h3>Telefono: {{ profile.telefono }}</h3>
-      <h3>Estado Civil: {{ profile.domicilio }}</h3>
+      <h3>Estado Civil: {{ profile.estadocivil }}</h3>
       <h3>Contactame a {{ profile.email }}</h3>
-      <h3>Vivo en {{ profile.domicilio }}, {{ profile.nacionalidad }}</h3>
+      <h3>
+        Lugar de Residencia: {{ profile.domicilio }}, {{ profile.nacionalidad }}
+      </h3>
 
       <mat-divider></mat-divider>
 
@@ -22,24 +23,14 @@
         <strong>{{ profile.fechanacimiento }}</strong>
       </h3>
 
-      <!-- <mat-card-content>
-        <mat-icon>code</mat-icon>
-      </mat-card-content> -->
+      <mat-divider></mat-divider>
 
-      <!-- <mat-chip-list>
-        <mat-chip color="primary" selected
-          >{{ profile.public_repos }} Public Repos</mat-chip
+      <h2>
+        Acerca de mi:
+        <mat-card-subtitle
+          ><strong>{{ profile.acercade }}</strong></mat-card-subtitle
         >
-        <mat-chip color="accent" selected
-          >{{ profile.public_gist }} Public Gist</mat-chip
-        >
-        <mat-chip color="accent" selected
-          >{{ profile.followers }} Followers</mat-chip
-        >
-        <mat-chip color="accent" selected
-          >{{ profile.following }} Following</mat-chip
-        >
-      </mat-chip-list> -->
+      </h2>
     </mat-card>
   </div>
 </div>

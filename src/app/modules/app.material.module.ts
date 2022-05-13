@@ -35,7 +35,6 @@ import { ClipboardModule } from '@angular/cdk/clipboard';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 
 import { MatNativeDateModule, MatRippleModule } from '@angular/material/core';
-
 //const components = [];
 
 const modules = [

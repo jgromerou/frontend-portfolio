@@ -1,14 +1,19 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProfileService {
+  TOKEN_KEY = 'auth-token';
+  token: string = '';
   url: string = `${environment.URL_SERVICIOS}`;
   linkfoto!: string;
+  nombreArchivo!: any;
+
+  datosSubject = new Subject<any>();
 
   constructor(private http: HttpClient) {}
 
@@ -17,14 +22,50 @@ export class ProfileService {
   }
 
   obtenerFotoPerfil(linkfoto: string): Observable<any> {
-    return this.http.get<any>(this.url + `/test/filesget/${linkfoto}`, {
+    return this.http.get<any>(this.url + `/test/filesget/uploads/${linkfoto}`, {
       responseType: 'Blob' as 'json',
     });
   }
 
   guardarFoto(fotoperfil: any) {
+    this.token = window.sessionStorage.getItem(this.TOKEN_KEY)!;
     const formData = new FormData();
     formData.append('file', fotoperfil);
-    return this.http.post(this.url + `/test/upload/`, formData);
+    return this.http.post(this.url + `/test/upload/`, formData).pipe(
+      tap(
+        // Log the result or error
+        {
+          next: (data) => {
+            this.nombreArchivo = data;
+            setTimeout(() => {
+              this.guardarStringFoto(this.nombreArchivo.message);
+            }, 300);
+          },
+          error: (error) => {
+            console.log(error);
+          },
+        }
+      )
+    );
+  }
+
+  guardarStringFoto(foto: String) {
+    return this.http
+      .put(this.url + `/persona/editarfotoperfil/1/${foto}`, {
+        responseType: 'text',
+      })
+      .pipe(
+        tap(
+          //Log the result or error
+          {
+            next: () => {
+              this.datosSubject.next(foto);
+            },
+            error: () => {
+              this.datosSubject.next(foto);
+            },
+          }
+        )
+      );
   }
 }

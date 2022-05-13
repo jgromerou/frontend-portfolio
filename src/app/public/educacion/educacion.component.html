@@ -1,1 +1,33 @@
-<p>educacion works!</p>
+<!--EDUCACIÓN-->
+
+<section class="card m-2 p-4">
+  <div class="d-flex justify-content-center my-2" id="education">
+    <h1><span>EDUCACION</span></h1>
+  </div>
+  <mat-divider></mat-divider>
+
+  <!--Entrada-->
+  <div
+    class="d-flex justify-content-center mb-2"
+    *ngFor="let educ of educacion$ | async"
+  >
+    <img
+      src="assets/ap borde.png"
+      alt=""
+      style="width: 60px; height: auto"
+      class="align-self-start"
+    />
+    <div class="mx-3 header-s width-card">
+      <h2>
+        <span>{{ educ.institucion }}</span>
+      </h2>
+      <p class="my-0">{{ educ.instituto }}</p>
+      <p class="text-secondary">
+        {{ educ.fechaInicio | date: "dd/MM/yyyy" }} -
+        {{ educ.fechaFin | date: "dd/MM/yyyy" }}
+      </p>
+      <p class="my-0">Porcentaje: {{ educ.porcentaje_carrera }} %</p>
+      <hr />
+    </div>
+  </div>
+</section>

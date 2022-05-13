@@ -8,11 +8,8 @@ import { FooterComponent } from './footer/footer.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { TerminalComponent } from './terminal/terminal.component';
 import { AppMaterialModule } from '../modules/app.material.module';
-/* import { RouterModule } from '@angular/router'; */
 import { PublicModule } from '../public/public.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatDividerModule } from '@angular/material/divider';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [

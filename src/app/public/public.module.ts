@@ -8,6 +8,7 @@ import { ProyectosComponent } from './proyectos/proyectos.component';
 import { EducacionComponent } from './educacion/educacion.component';
 import { ExplaboralesComponent } from './explaborales/explaborales.component';
 import { AppMaterialModule } from '../modules/app.material.module';
+import { ProyectosGithubComponent } from './proyectos-github/proyectos-github.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { AppMaterialModule } from '../modules/app.material.module';
     ProyectosComponent,
     EducacionComponent,
     ExplaboralesComponent,
+    ProyectosGithubComponent,
   ],
   imports: [CommonModule, PublicRoutingModule, AppMaterialModule],
   exports: [
@@ -24,6 +26,7 @@ import { AppMaterialModule } from '../modules/app.material.module';
     ProyectosComponent,
     ExplaboralesComponent,
     EducacionComponent,
+    ProyectosGithubComponent,
   ],
 })
 export class PublicModule {}

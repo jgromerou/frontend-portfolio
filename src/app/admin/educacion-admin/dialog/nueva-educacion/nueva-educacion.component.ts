@@ -1,13 +1,7 @@
 import { Component, Inject } from '@angular/core';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DialogEducacion } from 'src/app/interfaces/dialogEducacion';
-import { DialogHabilidad } from 'src/app/interfaces/dialogHabilidad';
 @Component({
   selector: 'app-nueva-educacion',
   templateUrl: './nueva-educacion.component.html',
