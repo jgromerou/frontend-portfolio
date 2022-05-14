@@ -54,27 +54,34 @@ export class ExplaboralesAdminComponent {
     dialogRef.afterClosed().subscribe((result: any) => {
       console.log('El Dialog se ha cerrado');
 
-      this.datosExplaborales.nuevaExplaboral(result).subscribe((resp: any) => {
-        this.ruta.navigate(['admin']);
-        return;
-      });
+      if (result != undefined) {
+        this.datosExplaborales
+          .nuevaExplaboral(result)
+          .subscribe((resp: any) => {
+            this.ruta.navigate(['admin']);
+            return;
+          });
+      }
     });
   }
 
-  openDialogEditar(hab: any) {
+  openDialogEditar(exp: any) {
     const dialogRef = this.dialog.open(EditarExplaboralComponent, {
       width: '300px',
       panelClass: 'makeItMiddle',
       data: {
-        idHabilidad: hab.idHabilidad,
-        habilidad: hab.habilidad,
-        porcentaje_habilidad: hab.porcentaje_habilidad,
+        idExperienciaLaboral: exp.idExperienciaLaboral,
+        empresa: exp.empresa,
+        puesto: exp.puesto,
+        descripcionTareas: exp.descripcionTareas,
+        fechaInicio: exp.fechaInicio,
+        fechaFin: exp.fechaFin,
+        persona: 1,
       },
     });
 
     dialogRef.afterClosed().subscribe((result: any) => {
       console.log('El Dialog se ha cerrado');
-
       this.datosExplaborales.editarExplaboral(result).subscribe((resp: any) => {
         this.ruta.navigate(['admin']);
         return;
@@ -82,14 +89,12 @@ export class ExplaboralesAdminComponent {
     });
   }
 
-  openDialogBorrar(hab: any) {
+  openDialogBorrar(educ: any) {
     const dialogRef = this.dialog.open(BorrarExplaboralComponent, {
       width: '300px',
       panelClass: 'makeItMiddle',
       data: {
-        idHabilidad: hab.idHabilidad,
-        habilidad: hab.habilidad,
-        porcentaje_habilidad: hab.porcentaje_habilidad,
+        idExperienciaLaboral: educ.idExperienciaLaboral,
       },
     });
 

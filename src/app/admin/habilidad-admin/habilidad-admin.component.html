@@ -17,7 +17,7 @@
     <ul *ngFor="let hab of miHabilidad$ | async" class="mb-2 card">
       <h2>{{ hab.habilidad }}</h2>
       <div class="d-flex flex-row align-items-center mb-4">
-        <div class="progress col-9 margin-y">
+        <div class="progress col-6 col-sm-7 col-md-9 col-xl-9 margin-y">
           <div
             class="progress-bar progress-bar-striped progress-bar-animated massive-font"
             role="progressbar"
@@ -40,7 +40,7 @@
           </button>
         </div>
         <!--Icono Eliminar-->
-        <div class="col-1">
+        <div class="col-1 spacer">
           <button
             type="button"
             class="btn size-icon"

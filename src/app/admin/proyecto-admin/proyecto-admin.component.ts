@@ -4,8 +4,10 @@ import { Router } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 import { ProyectoService } from 'src/app/services/proyecto.service';
-import { BorrarHabilidadComponent } from '../habilidad-admin/dialog/borrar-habilidad/borrar-habilidad.component';
-import { EditarHabilidadComponent } from '../habilidad-admin/dialog/editar-habilidad/editar-habilidad.component';
+import Swal from 'sweetalert2';
+import { BorrarProyectoComponent } from './dialog/borrar-proyecto/borrar-proyecto.component';
+import { EditarProyectoComponent } from './dialog/editar-proyecto/editar-proyecto.component';
+import { NuevoProyectoComponent } from './dialog/nuevo-proyecto/nuevo-proyecto.component';
 
 @Component({
   selector: 'app-proyecto-admin',
@@ -36,14 +38,36 @@ export class ProyectoAdminComponent implements OnInit {
     this.proySubscription.unsubscribe;
   }
 
-  openDialogEditar(hab: any) {
-    const dialogRef = this.dialog.open(EditarHabilidadComponent, {
+  openDialogNuevo() {
+    const dialogRef = this.dialog.open(NuevoProyectoComponent, {
       width: '300px',
       panelClass: 'makeItMiddle',
       data: {
-        idHabilidad: hab.idHabilidad,
-        habilidad: hab.habilidad,
-        porcentaje_habilidad: hab.porcentaje_habilidad,
+        proyecto: '',
+        tecnologia: '',
+        persona: 1,
+      },
+    });
+
+    dialogRef.afterClosed().subscribe((result: any) => {
+      console.log('El Dialog se ha cerrado');
+
+      if (result != undefined) {
+        this.datosProyectos.nuevoProyecto(result).subscribe((resp: any) => {
+          this.ruta.navigate(['admin']);
+        });
+      }
+    });
+  }
+
+  openDialogEditar(proy: any) {
+    const dialogRef = this.dialog.open(EditarProyectoComponent, {
+      width: '300px',
+      panelClass: 'makeItMiddle',
+      data: {
+        idProyecto: proy.idProyecto,
+        proyecto: proy.proyecto,
+        tecnologia: proy.tecnologia,
       },
     });
 
@@ -51,19 +75,16 @@ export class ProyectoAdminComponent implements OnInit {
       console.log('El Dialog se ha cerrado');
       this.datosProyectos.editarProyecto(result).subscribe((resp: any) => {
         this.ruta.navigate(['admin']);
-        return;
       });
     });
   }
 
-  openDialogBorrar(hab: any) {
-    const dialogRef = this.dialog.open(BorrarHabilidadComponent, {
+  openDialogBorrar(proy: any) {
+    const dialogRef = this.dialog.open(BorrarProyectoComponent, {
       width: '300px',
       panelClass: 'makeItMiddle',
       data: {
-        idHabilidad: hab.idHabilidad,
-        habilidad: hab.habilidad,
-        porcentaje_habilidad: hab.porcentaje_habilidad,
+        idProyecto: proy.idProyecto,
       },
     });
 
@@ -72,6 +93,7 @@ export class ProyectoAdminComponent implements OnInit {
 
       this.datosProyectos.borrarProyecto(result).subscribe((resp: any) => {
         this.ruta.navigate(['admin']);
+
         return;
       });
     });

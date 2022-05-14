@@ -1,19 +1,19 @@
 import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { DialogExplaboral } from 'src/app/interfaces/dialogExplaboral';
+import { DialogProyecto } from 'src/app/interfaces/dialogProyecto';
 
 @Component({
-  selector: 'app-borrar-explaboral',
-  templateUrl: './borrar-explaboral.component.html',
-  styleUrls: ['./borrar-explaboral.component.scss'],
+  selector: 'app-borrar-proyecto',
+  templateUrl: './borrar-proyecto.component.html',
+  styleUrls: ['./borrar-proyecto.component.scss'],
 })
-export class BorrarExplaboralComponent {
+export class BorrarProyectoComponent {
   dataSource: any;
 
   constructor(
-    public dialogRef: MatDialogRef<BorrarExplaboralComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogExplaboral,
+    public dialogRef: MatDialogRef<BorrarProyectoComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogProyecto,
     public fb: FormBuilder
   ) {}
 

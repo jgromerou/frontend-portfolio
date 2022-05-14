@@ -21,6 +21,9 @@ import { BorrarEducacionComponent } from './educacion-admin/dialog/borrar-educac
 import { NuevaExplaboralComponent } from './explaborales-admin/dialog/nueva-explaboral/nueva-explaboral.component';
 import { EditarExplaboralComponent } from './explaborales-admin/dialog/editar-explaboral/editar-explaboral.component';
 import { BorrarExplaboralComponent } from './explaborales-admin/dialog/borrar-explaboral/borrar-explaboral.component';
+import { EditarProyectoComponent } from './proyecto-admin/dialog/editar-proyecto/editar-proyecto.component';
+import { BorrarProyectoComponent } from './proyecto-admin/dialog/borrar-proyecto/borrar-proyecto.component';
+import { NuevoProyectoComponent } from './proyecto-admin/dialog/nuevo-proyecto/nuevo-proyecto.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +43,9 @@ import { BorrarExplaboralComponent } from './explaborales-admin/dialog/borrar-ex
     NuevaExplaboralComponent,
     EditarExplaboralComponent,
     BorrarExplaboralComponent,
+    EditarProyectoComponent,
+    BorrarProyectoComponent,
+    NuevoProyectoComponent,
   ],
   imports: [
     CommonModule,
@@ -59,6 +65,9 @@ import { BorrarExplaboralComponent } from './explaborales-admin/dialog/borrar-ex
     EditarHabilidadComponent,
     NuevaHabilidadComponent,
     BorrarHabilidadComponent,
+    NuevoProyectoComponent,
+    EditarProyectoComponent,
+    BorrarProyectoComponent,
   ],
 })
 export class AdminModule {}

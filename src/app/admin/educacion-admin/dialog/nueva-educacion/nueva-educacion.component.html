@@ -1,6 +1,7 @@
 <h1 mat-dialog-title>Nueva Educación</h1>
 <div mat-dialog-content align="center" [formGroup]="form">
   <mat-form-field appearance="fill">
+    <!--Nombre de la Institución-->
     <mat-label>Nombre de Institución</mat-label>
     <input
       matInput
@@ -17,6 +18,7 @@
       </span>
     </mat-error>
   </mat-form-field>
+  <!--Título-->
   <mat-form-field appearance="fill">
     <mat-label>Nombre de Título</mat-label>
     <input
@@ -65,23 +67,7 @@
     <mat-datepicker #fechaFin></mat-datepicker>
   </mat-form-field>
 
-  <mat-form-field appearance="fill">
-    <mat-label>Fecha Fin</mat-label>
-    <input
-      matInput
-      #input
-      placeholder="Fecha Fin"
-      [(ngModel)]="data.fechaFin"
-      name="fechaFin"
-      formControlName="fechaFin"
-      required
-    />
-    <mat-error>
-      <span *ngIf="form.get('fechaFin')?.invalid" class="error"
-        >La institución es requerida
-      </span>
-    </mat-error>
-  </mat-form-field>
+  <!--Porcentaje de la Carrera-->
   <mat-form-field appearance="fill">
     <mat-label>Porcentaje de Carrera: </mat-label>
     <input

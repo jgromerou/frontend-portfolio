@@ -1,6 +1,18 @@
 <!--PROYECTOS-->
 <div class="container">
   <h1 class="header-s">PROYECTOS</h1>
+  <!--Botón Nuevo Proyecto-->
+  <div class="outerDiv mb-2">
+    <!--Botón Nuevo-->
+    <button
+      *ngIf="authService.isAdmin"
+      type="button"
+      class="btn btn-primary save"
+      (click)="openDialogNuevo()"
+    >
+      Nuevo Proyecto
+    </button>
+  </div>
   <div class="grid">
     <mat-card class="grid-item-anim" *ngFor="let proy of proyectos$ | async">
       <mat-card-header>

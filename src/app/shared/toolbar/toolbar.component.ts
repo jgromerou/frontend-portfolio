@@ -15,8 +15,8 @@ import { BreakpointObserver } from '@angular/cdk/layout';
   styleUrls: ['./toolbar.component.scss'],
 })
 export class ToolbarComponent {
-  title = 'Demo1';
-  //enlace = 'logueo'
+  title = 'ArgentinaPrograma-RomeroUro';
+  mobile: boolean = false;
   @ViewChild(MatSidenav)
   sidenav!: MatSidenav;
   constructor(
@@ -34,9 +34,11 @@ export class ToolbarComponent {
         if (res.matches) {
           this.sidenav.mode = 'over';
           this.sidenav.close();
+          this.mobile = true;
         } else {
           this.sidenav.mode = 'side';
           this.sidenav.open();
+          this.mobile = false;
         }
       });
 

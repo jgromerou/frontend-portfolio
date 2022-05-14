@@ -1,1 +1,8 @@
-<p>borrar-explaboral works!</p>
+<h1 mat-dialog-title>Eliminar Experiencia Laboral</h1>
+<h3 mat-dialog-title>
+  ¿Desea eliminar la experiencia laboral de ID:{{ data.idExperienciaLaboral }}?
+</h3>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancelar</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Eliminar</button>
+</div>

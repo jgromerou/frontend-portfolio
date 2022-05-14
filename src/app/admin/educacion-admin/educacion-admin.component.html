@@ -41,10 +41,18 @@
       <hr />
     </div>
     <div>
-      <button type="button" class="btn size-icon">
+      <button
+        type="button"
+        class="btn size-icon"
+        (click)="openDialogEditar(educ)"
+      >
         <i class="bi bi-pencil-square iconos"></i>
       </button>
-      <button type="button" class="btn size-icon">
+      <button
+        type="button"
+        class="btn size-icon"
+        (click)="openDialogBorrar(educ)"
+      >
         <i class="bi bi-trash3 iconos"></i>
       </button>
     </div>

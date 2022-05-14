@@ -4,7 +4,7 @@ import {
 } from '@angular/material/datepicker/datepicker-base';
 
 export interface DialogExplaboral {
-  idExplaboral: number;
+  idExperienciaLaboral: number;
   empresa: string;
   puesto: string;
   descripcionTareas: string;

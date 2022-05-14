@@ -4,9 +4,8 @@ import { Router } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 import { EducacionService } from 'src/app/services/educacion.service';
-import { BorrarHabilidadComponent } from '../habilidad-admin/dialog/borrar-habilidad/borrar-habilidad.component';
-import { EditarHabilidadComponent } from '../habilidad-admin/dialog/editar-habilidad/editar-habilidad.component';
-import { NuevaHabilidadComponent } from '../habilidad-admin/dialog/nueva-habilidad/nueva-habilidad.component';
+import { BorrarEducacionComponent } from './dialog/borrar-educacion/borrar-educacion.component';
+import { EditarEducacionComponent } from './dialog/editar-educacion/editar-educacion.component';
 import { NuevaEducacionComponent } from './dialog/nueva-educacion/nueva-educacion.component';
 
 @Component({
@@ -54,22 +53,27 @@ export class EducacionAdminComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result: any) => {
       console.log('El Dialog se ha cerrado');
-
-      this.datosEducacion.nuevaEducacion(result).subscribe((resp: any) => {
-        this.ruta.navigate(['admin']);
-        return;
-      });
+      if (result != undefined) {
+        this.datosEducacion.nuevaEducacion(result).subscribe((resp: any) => {
+          this.ruta.navigate(['admin']);
+          return;
+        });
+      }
     });
   }
 
-  openDialogEditar(hab: any) {
-    const dialogRef = this.dialog.open(EditarHabilidadComponent, {
+  openDialogEditar(educ: any) {
+    const dialogRef = this.dialog.open(EditarEducacionComponent, {
       width: '300px',
       panelClass: 'makeItMiddle',
       data: {
-        idHabilidad: hab.idHabilidad,
-        habilidad: hab.habilidad,
-        porcentaje_habilidad: hab.porcentaje_habilidad,
+        idEducacion: educ.idEducacion,
+        institucion: educ.institucion,
+        titulo: educ.titulo,
+        fechaInicio: educ.fechaInicio,
+        fechaFin: educ.fechaFin,
+        porcentaje_carrera: educ.porcentaje_carrera,
+        persona: 1,
       },
     });
 
@@ -83,14 +87,12 @@ export class EducacionAdminComponent implements OnInit {
     });
   }
 
-  openDialogBorrar(hab: any) {
-    const dialogRef = this.dialog.open(BorrarHabilidadComponent, {
+  openDialogBorrar(educ: any) {
+    const dialogRef = this.dialog.open(BorrarEducacionComponent, {
       width: '300px',
       panelClass: 'makeItMiddle',
       data: {
-        idHabilidad: hab.idHabilidad,
-        habilidad: hab.habilidad,
-        porcentaje_habilidad: hab.porcentaje_habilidad,
+        idEducacion: educ.idEducacion,
       },
     });
 

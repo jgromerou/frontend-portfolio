@@ -1,1 +1,100 @@
-<p>editar-educacion works!</p>
+<h1 mat-dialog-title>Editar Educación</h1>
+<div mat-dialog-content align="center" [formGroup]="form">
+  <mat-form-field appearance="fill">
+    <!--Nombre de la Institución-->
+    <mat-label>Nombre de Institución</mat-label>
+    <input
+      matInput
+      #input
+      placeholder="Nombre de Institución"
+      [(ngModel)]="data.institucion"
+      name="institucion"
+      formControlName="institucion"
+      required
+    />
+    <mat-error>
+      <span *ngIf="form.get('institucion')?.invalid" class="error"
+        >La institución es requerida
+      </span>
+    </mat-error>
+  </mat-form-field>
+  <!--Título-->
+  <mat-form-field appearance="fill">
+    <mat-label>Nombre de Título</mat-label>
+    <input
+      matInput
+      #input
+      placeholder="Nombre de Título"
+      [(ngModel)]="data.titulo"
+      name="titulo"
+      formControlName="titulo"
+      required
+    />
+    <mat-error>
+      <span *ngIf="form.get('titulo')?.invalid" class="error"
+        >El título es Requerido
+      </span>
+    </mat-error>
+  </mat-form-field>
+  <!--Fecha Inicio-->
+  <mat-form-field color="accent" appearance="fill">
+    <mat-label>Fecha Inicio</mat-label>
+    <input
+      [(ngModel)]="data.fechaInicio"
+      formControlName="fechaInicio"
+      matInput
+      [matDatepicker]="fechaInicio"
+    />
+    <mat-hint>DD/MM/YYYY</mat-hint>
+    <mat-datepicker-toggle
+      matSuffix
+      [for]="fechaInicio"
+    ></mat-datepicker-toggle>
+    <mat-datepicker #fechaInicio></mat-datepicker>
+  </mat-form-field>
+
+  <!--Fecha Fin-->
+  <mat-form-field color="accent" appearance="fill">
+    <mat-label>Fecha Fin</mat-label>
+    <input
+      [(ngModel)]="data.fechaFin"
+      formControlName="fechaFin"
+      matInput
+      [matDatepicker]="fechaFin"
+    />
+    <mat-hint>DD/MM/YYYY</mat-hint>
+    <mat-datepicker-toggle matSuffix [for]="fechaFin"></mat-datepicker-toggle>
+    <mat-datepicker #fechaFin></mat-datepicker>
+  </mat-form-field>
+
+  <!--Porcentaje de la Carrera-->
+  <mat-form-field appearance="fill">
+    <mat-label>Porcentaje de Carrera: </mat-label>
+    <input
+      matInput
+      #input
+      placeholder="Porcentaje de Carrera o Cursada"
+      [(ngModel)]="data.porcentaje_carrera"
+      name="porcentaje_carrera"
+      formControlName="porcentaje_carrera"
+      required
+      (keyup.enter)="sendit(data)"
+    />
+    <mat-error>
+      <span *ngIf="form.get('porcentaje_carrera')?.invalid" class="error"
+        >El porcentaje de carrera o cursada es requerido
+      </span>
+    </mat-error>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancelar</button>
+  <button
+    [disabled]="form.invalid"
+    mat-button
+    [mat-dialog-close]="data"
+    cdkFocusInitial
+  >
+    Modificar
+  </button>
+</div>

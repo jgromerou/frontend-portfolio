@@ -45,11 +45,15 @@ export class ExplaboralService {
   editarExplaboral(exp: any): Observable<any> {
     this.token = window.sessionStorage.getItem(this.TOKEN_KEY)!;
     return this.http
-      .put(this.url + `/experiencialaboral/editar/${exp.idEducacion}`, exp, {
-        headers: {
-          Authorization: `Bearer ${this.token}`,
-        },
-      })
+      .put(
+        this.url + `/experiencialaboral/editar/${exp.idExperienciaLaboral}`,
+        exp,
+        {
+          headers: {
+            Authorization: `Bearer ${this.token}`,
+          },
+        }
+      )
       .pipe(
         tap(
           // Log the result or error
@@ -68,12 +72,15 @@ export class ExplaboralService {
   borrarExplaboral(exp: any): Observable<any> {
     this.token = window.sessionStorage.getItem(this.TOKEN_KEY)!;
     return this.http
-      .delete(this.url + `/experiencialaboral/borrar/${exp.idExplaboral}`, {
-        headers: {
-          Authorization: `Bearer ${this.token}`,
-        },
-        responseType: 'text',
-      })
+      .delete(
+        this.url + `/experiencialaboral/borrar/${exp.idExperienciaLaboral}`,
+        {
+          headers: {
+            Authorization: `Bearer ${this.token}`,
+          },
+          responseType: 'text',
+        }
+      )
       .pipe(
         tap(
           // Log the result or error

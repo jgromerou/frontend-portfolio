@@ -1,0 +1,50 @@
+<h1 mat-dialog-title>Nuevo Proyecto</h1>
+<div mat-dialog-content align="center" [formGroup]="form">
+  <mat-form-field appearance="fill">
+    <!--Nombre del proyecto-->
+    <mat-label>Nombre del Proyecto</mat-label>
+    <input
+      matInput
+      #input
+      placeholder="Nombre del Proyecto"
+      [(ngModel)]="data.proyecto"
+      name="proyecto"
+      formControlName="proyecto"
+      required
+    />
+    <mat-error>
+      <span *ngIf="form.get('proyecto')?.invalid" class="error"
+        >El nombre del Proyecto es requerido.
+      </span>
+    </mat-error>
+  </mat-form-field>
+  <!--Tecnología-->
+  <mat-form-field appearance="fill">
+    <mat-label>Tecnología</mat-label>
+    <input
+      matInput
+      #input
+      placeholder="Tecnología"
+      [(ngModel)]="data.tecnologia"
+      name="tecnologia"
+      formControlName="tecnologia"
+      required
+    />
+    <mat-error>
+      <span *ngIf="form.get('tecnologia')?.invalid" class="error"
+        >La Tecnología es Requerida
+      </span>
+    </mat-error>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancelar</button>
+  <button
+    [disabled]="form.invalid"
+    mat-button
+    [mat-dialog-close]="data"
+    cdkFocusInitial
+  >
+    Nuevo
+  </button>
+</div>

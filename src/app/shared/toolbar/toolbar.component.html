@@ -10,12 +10,14 @@
     </button>
   </div>
 
-  <div>
-    <a href="https://argentinaprograma.inti.gob.ar/"
-      ><img class="image" src="../../../assets/APLogo-20-20.png"
-    /></a>
-    <span>#YO PROGRAMO</span>
+  <a href="https://argentinaprograma.inti.gob.ar/"
+    ><img class="image" src="../../../assets/APLogo-20-20.png"
+  /></a>
+
+  <div *ngIf="!mobile">
+    <span>ARGENTINA PROGRAMA - #YO PROGRAMO</span>
   </div>
+
   <span class="spacer"></span>
   <div class="redes face">
     <a href="https://www.facebook.com/gerardoromerouro" target="_blank"
