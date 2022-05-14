@@ -65,18 +65,13 @@
   <mat-sidenav #sidenav="matSidenav" fxLayout="column" closed="true">
     <div fxLayout="column">
       <!-- BOTÓN DE  PUBLIC PROFILE-->
-      <a
-        *ngIf="authService.isLoggedIn"
-        mat-button
-        class="menu-button"
-        href="#profile"
-      >
+      <a mat-button class="menu-button" href="#profile">
         <mat-icon>account_circle</mat-icon>
         <span>homepage</span>
       </a>
       <!-- BOTÓN DE ADMIN PROFILE-->
       <a
-        *ngIf="authService.isLoggedIn"
+        *ngIf="authService.isAdmin"
         mat-button
         class="menu-button"
         href="/admin#profile-admin"
@@ -88,7 +83,6 @@
       <div fxLayout="column">
         <!-- BOTÓN DE PUBLIC PROYECTOS-->
         <a
-          *ngIf="!authService.isLoggedIn"
           mat-button
           class="menu-button"
           aria-label="Icono de proyecto"
@@ -99,7 +93,7 @@
       </div>
       <!-- BOTÓN DE ADMIN PROYECTOS-->
       <a
-        *ngIf="!authService.isLoggedIn"
+        *ngIf="authService.isAdmin"
         mat-button
         class="menu-button"
         aria-label="Icono de proyecto"
@@ -113,7 +107,6 @@
       <!-- BOTÓN DE PUBLIC HABILIDADES-->
       <div fxLayout="column">
         <a
-          *ngIf="!authService.isLoggedIn"
           mat-button
           class="menu-button"
           aria-label="Icono de habilidades"
@@ -123,7 +116,7 @@
         </a>
         <!-- BOTÓN DE ADMIN HABILIDADES-->
         <a
-          *ngIf="!authService.isLoggedIn"
+          *ngIf="authService.isAdmin"
           mat-button
           class="menu-button"
           aria-label="Icono de habilidades"
@@ -137,7 +130,6 @@
       <div fxLayout="column">
         <!-- BOTÓN DE PUBLIC EDUCACION-->
         <a
-          *ngIf="!authService.isLoggedIn"
           mat-button
           class="menu-button"
           aria-label="Icono de Educacion"
@@ -147,7 +139,7 @@
         </a>
         <!-- BOTÓN DE ADMIN EDUCACION-->
         <a
-          *ngIf="!authService.isLoggedIn"
+          *ngIf="authService.isAdmin"
           mat-button
           class="menu-button"
           aria-label="Icono de Educacion"
@@ -161,7 +153,6 @@
       <div fxLayout="column">
         <!-- BOTÓN DE PUBLIC Experiencias Laborales-->
         <a
-          *ngIf="!authService.isLoggedIn"
           mat-button
           class="menu-button"
           aria-label="Icono de Exp Laboral"
@@ -171,7 +162,7 @@
         </a>
         <!-- BOTÓN DE ADMIN EXPERIENCIAS LABORALES-->
         <a
-          *ngIf="!authService.isLoggedIn"
+          *ngIf="authService.isAdmin"
           mat-button
           class="menu-button"
           aria-label="Icono de explaborales"
