@@ -10,6 +10,7 @@ import { TerminalComponent } from './terminal/terminal.component';
 import { AppMaterialModule } from '../modules/app.material.module';
 import { PublicModule } from '../public/public.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NopagefoundComponent } from './nopagefound/nopagefound.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FooterComponent,
     HomepageComponent,
     TerminalComponent,
+    NopagefoundComponent,
   ],
   imports: [
     CommonModule,
