@@ -12,7 +12,7 @@ export class NopagefoundComponent {
     this.sesionActiva = localStorage.getItem('currentUser') ? true : false;
   }
 
-  iraLogin() {
-    this.ruta.navigate(['login']);
+  iraInicio() {
+    this.ruta.navigate(['']);
   }
 }

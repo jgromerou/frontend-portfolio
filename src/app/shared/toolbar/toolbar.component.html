@@ -67,7 +67,7 @@
       <!-- BOTÓN DE  PUBLIC PROFILE-->
       <a mat-button class="menu-button" href="#profile">
         <mat-icon>account_circle</mat-icon>
-        <span>homepage</span>
+        <span>Inicio</span>
       </a>
       <!-- BOTÓN DE ADMIN PROFILE-->
       <a
@@ -77,9 +77,34 @@
         href="/admin#profile-admin"
       >
         <mat-icon>account_circle</mat-icon>
-        <span>homepage-admin</span>
+        <span>INICIO ADMIN</span>
       </a>
       <mat-divider></mat-divider>
+
+      <div fxLayout="column">
+        <!-- BOTÓN DE PUBLIC EDUCACION-->
+        <a
+          mat-button
+          class="menu-button"
+          aria-label="Icono de Educacion"
+          href="#educacion"
+        >
+          <mat-icon>school</mat-icon><span>Educación</span>
+        </a>
+        <!-- BOTÓN DE ADMIN EDUCACION-->
+        <a
+          *ngIf="authService.isAdmin"
+          mat-button
+          class="menu-button"
+          aria-label="Icono de Educacion"
+          href="/admin#educacion-admin"
+        >
+          <mat-icon>school</mat-icon>
+          <span>EDUCACION ADMIN</span>
+        </a>
+      </div>
+      <mat-divider></mat-divider>
+
       <div fxLayout="column">
         <!-- BOTÓN DE PUBLIC PROYECTOS-->
         <a
@@ -100,9 +125,32 @@
         href="/admin#proyectos-admin"
       >
         <mat-icon>menu_book</mat-icon>
-        <span>proyectos-admin</span>
+        <span>PROYECTOS ADMIN</span>
       </a>
 
+      <mat-divider></mat-divider>
+      <!-- BOTÓN DE PUBLIC Experiencias Laborales-->
+      <div fxLayout="column">
+        <a
+          mat-button
+          class="menu-button"
+          aria-label="Icono de Exp Laboral"
+          href="#explaborales"
+        >
+          <mat-icon>school</mat-icon><span>Experiencias Laborales</span>
+        </a>
+        <!-- BOTÓN DE ADMIN EXPERIENCIAS LABORALES-->
+        <a
+          *ngIf="authService.isAdmin"
+          mat-button
+          class="menu-button"
+          aria-label="Icono de explaborales"
+          href="/admin#explaborales-admin"
+        >
+          <mat-icon>school</mat-icon>
+          <span>EXPLABORALES ADMIN</span>
+        </a>
+      </div>
       <mat-divider></mat-divider>
       <!-- BOTÓN DE PUBLIC HABILIDADES-->
       <div fxLayout="column">
@@ -123,53 +171,20 @@
           href="/admin#habilidad-admin"
         >
           <mat-icon>align_horizontal_left</mat-icon>
-          <span>habilidades-admin</span>
+          <span>HABILIDADES ADMIN</span>
         </a>
       </div>
       <mat-divider></mat-divider>
+      <!--REPOSITORIOS DE MI GITHUB-->
       <div fxLayout="column">
-        <!-- BOTÓN DE PUBLIC EDUCACION-->
         <a
           mat-button
           class="menu-button"
-          aria-label="Icono de Educacion"
-          href="#educacion"
+          aria-label="Icono de ir GITHUB"
+          href="#proyectos-github"
         >
-          <mat-icon>school</mat-icon><span>Educacion</span>
-        </a>
-        <!-- BOTÓN DE ADMIN EDUCACION-->
-        <a
-          *ngIf="authService.isAdmin"
-          mat-button
-          class="menu-button"
-          aria-label="Icono de Educacion"
-          href="/admin#educacion-admin"
-        >
-          <mat-icon>school</mat-icon>
-          <span>educacion-admin</span>
-        </a>
-      </div>
-      <mat-divider></mat-divider>
-      <div fxLayout="column">
-        <!-- BOTÓN DE PUBLIC Experiencias Laborales-->
-        <a
-          mat-button
-          class="menu-button"
-          aria-label="Icono de Exp Laboral"
-          href="#explaborales"
-        >
-          <mat-icon>school</mat-icon><span>Experiencias Laborales</span>
-        </a>
-        <!-- BOTÓN DE ADMIN EXPERIENCIAS LABORALES-->
-        <a
-          *ngIf="authService.isAdmin"
-          mat-button
-          class="menu-button"
-          aria-label="Icono de explaborales"
-          href="/admin#explaborales-admin"
-        >
-          <mat-icon>school</mat-icon>
-          <span>explaborales-admin</span>
+          <mat-icon>align_horizontal_left</mat-icon>
+          <span>Proyectos GITHUB</span>
         </a>
       </div>
     </div>
