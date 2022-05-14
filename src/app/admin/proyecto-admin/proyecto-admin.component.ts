@@ -45,6 +45,7 @@ export class ProyectoAdminComponent implements OnInit {
       data: {
         proyecto: '',
         tecnologia: '',
+        linkrepositorio: '',
         persona: 1,
       },
     });
@@ -68,6 +69,7 @@ export class ProyectoAdminComponent implements OnInit {
         idProyecto: proy.idProyecto,
         proyecto: proy.proyecto,
         tecnologia: proy.tecnologia,
+        linkrepositorio: proy.linkrepositorio,
       },
     });
 

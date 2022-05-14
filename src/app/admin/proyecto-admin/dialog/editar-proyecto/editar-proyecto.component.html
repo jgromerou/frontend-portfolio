@@ -36,6 +36,24 @@
       </span>
     </mat-error>
   </mat-form-field>
+  <!--Link Repositorio-->
+  <mat-form-field appearance="fill">
+    <mat-label>Link Repositorio</mat-label>
+    <input
+      matInput
+      #input
+      placeholder="Link Repositorio"
+      [(ngModel)]="data.linkrepositorio"
+      name="linkrepositorio"
+      formControlName="linkrepositorio"
+      required
+    />
+    <mat-error>
+      <span *ngIf="form.get('linkrepositorio')?.invalid" class="error"
+        >La Tecnología es Requerida
+      </span>
+    </mat-error>
+  </mat-form-field>
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">Cancelar</button>

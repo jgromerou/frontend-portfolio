@@ -19,6 +19,7 @@ export class EditarProyectoComponent {
     this.form = fb.group({
       proyecto: [this.data.proyecto, [Validators.required]],
       tecnologia: [this.data.tecnologia, [Validators.required]],
+      linkrepositorio: [this.data.linkrepositorio, [Validators.required]],
     });
   }
   onNoClick(): void {
