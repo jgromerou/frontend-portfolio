@@ -10,7 +10,7 @@ export class ProfileService {
   TOKEN_KEY = 'auth-token';
   token: string = '';
   url: string = `${environment.URL_SERVICIOS}`;
-  linkfoto!: string;
+  linkfoto!: any;
   nombreArchivo!: any;
 
   datosSubject = new Subject<any>();
@@ -21,8 +21,8 @@ export class ProfileService {
     return this.http.get<any>(this.url + '/persona/traer');
   }
 
-  obtenerFotoPerfil(linkfoto: string): Observable<any> {
-    return this.http.get<any>(this.url + `/test/filesget/uploads/${linkfoto}`, {
+  obtenerFotoPerfil(linkfoto: any): Observable<any> {
+    return this.http.get<any>(this.url + `/test/filesget/${linkfoto}`, {
       responseType: 'Blob' as 'json',
     });
   }
