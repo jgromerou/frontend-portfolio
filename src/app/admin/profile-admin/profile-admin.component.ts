@@ -18,6 +18,7 @@ export class ProfileAdminComponent implements OnInit {
   repos: any;
   profile: any;
   foto_perfil: any;
+  imagenCargada: boolean = false;
   username = 'jgromerou';
   fotoSubscription!: Subscription;
   profileSubscription!: Subscription;
@@ -56,6 +57,12 @@ export class ProfileAdminComponent implements OnInit {
         });
       }
     );
+
+    setTimeout(() => {
+      if (!this.imagenCargada) {
+        this.foto_perfil = './assets/fotoPerfil.webp';
+      }
+    }, 1600);
   }
 
   ngOnDestroy(): void {
@@ -75,6 +82,9 @@ export class ProfileAdminComponent implements OnInit {
 
     if (image) {
       reader.readAsDataURL(image);
+      this.imagenCargada = true;
+    } else {
+      this.imagenCargada = false;
     }
   }
 

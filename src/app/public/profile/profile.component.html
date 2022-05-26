@@ -2,14 +2,9 @@
   <div class="background" *ngIf="profile">
     <mat-card class="bio">
       <div class="spacer mb-3">
-        <img
-          [src]="foto_perfil"
-          class="avatar spacer"
-          id="profile-admin"
-          *ngIf="foto_perfil; else ImageFound"
-        />
+        <img [src]="foto_perfil" class="avatar spacer" id="profile-admin" />
       </div>
-      <ng-template #ImageFound>
+      <!-- <ng-template #ImageFound>
         <div>
           <img
             src="./assets/fotoPerfil.webp"
@@ -17,7 +12,7 @@
             alt="noImage"
           />
         </div>
-      </ng-template>
+      </ng-template> -->
 
       <mat-card-header>
         <mat-card-title>{{

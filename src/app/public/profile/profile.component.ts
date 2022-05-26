@@ -13,6 +13,7 @@ export class ProfileComponent implements OnInit {
   repos: any;
   profile: any;
   foto_perfil: any;
+  imagenCargada: any = false;
   username = 'jgromerou';
 
   constructor(private datosProfile: ProfileService) {}
@@ -26,6 +27,12 @@ export class ProfileComponent implements OnInit {
           this.createImageFromBlob(data);
         });
     });
+
+    setTimeout(() => {
+      if (!this.imagenCargada) {
+        this.foto_perfil = './assets/fotoPerfil.webp';
+      }
+    }, 1600);
   }
 
   createImageFromBlob(image: Blob) {
@@ -40,6 +47,9 @@ export class ProfileComponent implements OnInit {
 
     if (image) {
       reader.readAsDataURL(image);
+      this.imagenCargada = true;
+    } else {
+      this.imagenCargada = false;
     }
   }
 }
