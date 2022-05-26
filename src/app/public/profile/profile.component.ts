@@ -32,7 +32,7 @@ export class ProfileComponent implements OnInit {
       if (!this.imagenCargada) {
         this.foto_perfil = './assets/fotoPerfil.webp';
       }
-    }, 1600);
+    }, 2300);
   }
 
   createImageFromBlob(image: Blob) {
