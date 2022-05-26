@@ -38,14 +38,12 @@ export class LoginComponent {
     event.preventDefault();
     this.authService.IniciarSesion(this.formLogin.value).subscribe(
       (data) => {
-        console.log('DATA' + JSON.stringify(data));
         this.tokenStorage.saveToken(data.accessToken);
         this.ruta.navigate(['/admin']);
         this.isLoginFailed = false;
         this.roles = this.tokenStorage.getUser().roles;
       },
       (err) => {
-        console.log('Error de autenticación');
         Swal.fire({
           icon: 'error',
           title: 'Error de credenciales',

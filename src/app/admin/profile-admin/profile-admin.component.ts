@@ -93,11 +93,9 @@ export class ProfileAdminComponent implements OnInit {
       this.datosProfile
         .guardarFoto(result.fotoperfil)
         .subscribe((resp: any) => {
-          console.log('sending this to server', resp.message);
           this.datosProfile
             .guardarStringFoto(resp.message)
             .subscribe((resp2: any) => {
-              console.log('se agregó foto de perfil string', resp2);
               return;
             });
           return;

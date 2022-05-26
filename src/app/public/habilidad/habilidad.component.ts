@@ -14,7 +14,6 @@ export class HabilidadComponent implements OnInit {
   ngOnInit(): void {
     this.datosHabilidad.obtenerDatos().subscribe((data) => {
       this.miHabilidad = data;
-      console.log('Habilidaddes', this.miHabilidad);
     });
   }
 }

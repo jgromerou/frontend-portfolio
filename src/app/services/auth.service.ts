@@ -42,7 +42,6 @@ export class AuthService {
         this.rol = this.currentUserSubject.getValue().roles[0];
         this.isAuthenticatedSrc.next(true);
         this.isLoggedIn = true;
-        console.log('data', data);
         return data;
       })
     );
@@ -52,13 +51,11 @@ export class AuthService {
     this.isLoggedIn = false;
     this.isAuthenticatedSrc.next(false);
     this.ruta.navigate(['login']);
-    console.log('Se cerró la sesión');
   }
 
   obtenerRol() {
     var values = JSON.parse(sessionStorage.getItem('currentUser') || 'false');
     if (values.username !== undefined) {
-      console.log('sessionstorage', sessionStorage.getItem('currentUser'));
       if (this.currentUserSubject.getValue().roles[0] == 'ROLE_ADMIN') {
         this.rol = true;
       } else {

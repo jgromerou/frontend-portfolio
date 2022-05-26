@@ -20,7 +20,6 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this.datosProfile.obtenerDatos().subscribe((data) => {
       this.profile = data[0];
-      console.log('Mis datos', this.profile);
       this.datosProfile
         .obtenerFotoPerfil(this.profile.fotoPerfil)
         .subscribe((data) => {
