@@ -47,6 +47,7 @@ export class EducacionAdminComponent implements OnInit {
         fechaInicio: '',
         fechaFin: '',
         porcentaje_carrera: '',
+        linkimagen: '',
         persona: 1,
       },
     });
@@ -73,6 +74,7 @@ export class EducacionAdminComponent implements OnInit {
         fechaInicio: educ.fechaInicio,
         fechaFin: educ.fechaFin,
         porcentaje_carrera: educ.porcentaje_carrera,
+        linkimagen: educ.linkimagen,
         persona: 1,
       },
     });

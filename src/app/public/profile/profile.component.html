@@ -1,7 +1,23 @@
 <div class="center pos">
   <div class="background" *ngIf="profile">
     <mat-card class="bio">
-      <img [src]="foto_perfil" class="avatar" id="profile" />
+      <div class="spacer mb-3">
+        <img
+          [src]="foto_perfil"
+          class="avatar spacer"
+          id="profile-admin"
+          *ngIf="foto_perfil; else ImageFound"
+        />
+      </div>
+      <ng-template #ImageFound>
+        <div>
+          <img
+            src="./assets/fotoPerfil.webp"
+            class="avatar spacer"
+            alt="noImage"
+          />
+        </div>
+      </ng-template>
 
       <mat-card-header>
         <mat-card-title>{{
@@ -12,15 +28,14 @@
       <h3>Telefono: {{ profile.telefono }}</h3>
       <h3>Estado Civil: {{ profile.estadocivil }}</h3>
       <h3>Contactame a {{ profile.email }}</h3>
-      <h3>
-        Lugar de Residencia: {{ profile.domicilio }}, {{ profile.nacionalidad }}
-      </h3>
+      <h3>Lugar de Residencia: {{ profile.domicilio }}</h3>
+      <h3>Nacionalidad: {{ profile.nacionalidad }}</h3>
 
       <mat-divider></mat-divider>
 
       <h3>
         Fecha de Nacimiento:
-        <strong>{{ profile.fechanacimiento }}</strong>
+        <strong>{{ profile.fechanacimiento | date: "dd/MM/yyyy" }}</strong>
       </h3>
 
       <mat-divider></mat-divider>

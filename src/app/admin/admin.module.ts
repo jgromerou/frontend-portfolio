@@ -24,6 +24,7 @@ import { BorrarExplaboralComponent } from './explaborales-admin/dialog/borrar-ex
 import { EditarProyectoComponent } from './proyecto-admin/dialog/editar-proyecto/editar-proyecto.component';
 import { BorrarProyectoComponent } from './proyecto-admin/dialog/borrar-proyecto/borrar-proyecto.component';
 import { NuevoProyectoComponent } from './proyecto-admin/dialog/nuevo-proyecto/nuevo-proyecto.component';
+import { EditProfileComponent } from './profile-admin/dialog/edit-profile/edit-profile.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { NuevoProyectoComponent } from './proyecto-admin/dialog/nuevo-proyecto/n
     EditarProyectoComponent,
     BorrarProyectoComponent,
     NuevoProyectoComponent,
+    EditProfileComponent,
   ],
   imports: [
     CommonModule,
@@ -68,6 +70,7 @@ import { NuevoProyectoComponent } from './proyecto-admin/dialog/nuevo-proyecto/n
     NuevoProyectoComponent,
     EditarProyectoComponent,
     BorrarProyectoComponent,
+    EditProfileComponent,
   ],
 })
 export class AdminModule {}

@@ -19,7 +19,9 @@ export class NuevaEducacionComponent {
       institucion: [this.data.institucion, [Validators.required]],
       titulo: [this.data.titulo, [Validators.required]],
       fechaInicio: [this.data.fechaInicio, [Validators.required]],
+      fechaFin: [this.data.fechaFin, [Validators.required]],
       porcentaje_carrera: [this.data.porcentaje_carrera, [Validators.required]],
+      linkimagen: [this.data.linkimagen, [Validators.required]],
     });
   }
 

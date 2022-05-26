@@ -14,6 +14,7 @@ export class ProfileService {
   nombreArchivo!: any;
 
   datosSubject = new Subject<any>();
+  profileSubject = new Subject<any>();
 
   constructor(private http: HttpClient) {}
 
@@ -23,6 +24,9 @@ export class ProfileService {
 
   obtenerFotoPerfil(linkfoto: any): Observable<any> {
     return this.http.get<any>(this.url + `/test/filesget/${linkfoto}`, {
+      headers: {
+        'Content-Type': 'application/json; multipart/form-data;',
+      },
       responseType: 'Blob' as 'json',
     });
   }
@@ -63,6 +67,30 @@ export class ProfileService {
             },
             error: () => {
               this.datosSubject.next(foto);
+            },
+          }
+        )
+      );
+  }
+
+  editarProfile(profile: any): Observable<any> {
+    this.token = window.sessionStorage.getItem(this.TOKEN_KEY)!;
+    return this.http
+      .put(this.url + `/persona/editar/${profile.idPersona}`, profile, {
+        headers: {
+          Authorization: `Bearer ${this.token}`,
+        },
+      })
+      .pipe(
+        tap(
+          // Log the result or error
+          {
+            next: () => {
+              this.profileSubject.next(profile);
+              console.log('editado el profile', profile);
+            },
+            error: (error) => {
+              console.log(error);
             },
           }
         )

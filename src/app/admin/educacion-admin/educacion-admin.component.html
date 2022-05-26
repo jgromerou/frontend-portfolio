@@ -23,9 +23,9 @@
     *ngFor="let educ of educacion$ | async"
   >
     <img
-      src="assets/ap borde.png"
-      alt=""
-      style="width: 60px; height: auto"
+      [src]="educ.linkimagen"
+      alt="linkimagen"
+      style="width: 10rem; height: auto"
       class="align-self-start"
     />
     <div class="mx-3 header-s width-card">

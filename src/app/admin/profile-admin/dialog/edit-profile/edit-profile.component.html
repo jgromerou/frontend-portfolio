@@ -1,0 +1,203 @@
+<h1 mat-dialog-title>Editar Perfil</h1>
+<div mat-dialog-content align="center" [formGroup]="form">
+  <!--Nombre de la Persona-->
+  <mat-form-field appearance="fill">
+    <mat-label>Nombres</mat-label>
+    <input
+      matInput
+      #input
+      placeholder="Nombres"
+      [(ngModel)]="data.nombres"
+      name="nombres"
+      formControlName="nombres"
+      required
+    />
+    <mat-error>
+      <span *ngIf="form.get('nombres')?.invalid" class="error"
+        >El/los Nombre/s requerido/s.
+      </span>
+    </mat-error>
+  </mat-form-field>
+
+  <!--Apellido de la Persona-->
+  <mat-form-field appearance="fill">
+    <mat-label>Apellidos</mat-label>
+    <input
+      matInput
+      #input
+      placeholder="Apellidos"
+      [(ngModel)]="data.apellidos"
+      name="apellidos"
+      formControlName="apellidos"
+      required
+    />
+    <mat-error>
+      <span *ngIf="form.get('apellidos')?.invalid" class="error"
+        >El/los Apellido/s requerido/s.
+      </span>
+    </mat-error>
+  </mat-form-field>
+
+  <!--Email de la Persona-->
+  <mat-form-field appearance="fill">
+    <mat-label>Email</mat-label>
+    <input
+      matInput
+      #input
+      placeholder="Email"
+      [(ngModel)]="data.email"
+      name="email"
+      formControlName="email"
+      required
+    />
+    <mat-error>
+      <span *ngIf="form.get('email')?.invalid" class="error"
+        >El Email es requerido.
+      </span>
+    </mat-error>
+  </mat-form-field>
+  <!--Fecha de Nacimiento-->
+  <mat-form-field color="accent" appearance="fill">
+    <mat-label>Fecha de Nacimiento</mat-label>
+    <input
+      [(ngModel)]="data.fechanacimiento"
+      formControlName="fechanacimiento"
+      matInput
+      [matDatepicker]="fechanacimiento"
+    />
+    <mat-hint>DD/MM/YYYY</mat-hint>
+    <mat-datepicker-toggle
+      matSuffix
+      [for]="fechanacimiento"
+    ></mat-datepicker-toggle>
+    <mat-datepicker #fechanacimiento></mat-datepicker>
+  </mat-form-field>
+
+  <!--Telefono-->
+  <mat-form-field appearance="fill">
+    <mat-label>Teléfono</mat-label>
+    <input
+      matInput
+      #input
+      placeholder="Telefono..."
+      [(ngModel)]="data.telefono"
+      name="telefono"
+      formControlName="telefono"
+      required
+    />
+    <mat-error>
+      <span *ngIf="form.get('telefono')?.invalid" class="error"
+        >El telefono es requerido.
+      </span>
+    </mat-error>
+  </mat-form-field>
+
+  <!--Domicilio de la Persona-->
+  <mat-form-field appearance="fill">
+    <mat-label>Domicilio</mat-label>
+    <input
+      matInput
+      #input
+      placeholder="Domicilio"
+      [(ngModel)]="data.domicilio"
+      name="domicilio"
+      formControlName="domicilio"
+      required
+    />
+    <mat-error>
+      <span *ngIf="form.get('domicilio')?.invalid" class="error"
+        >El domicilio es requerido.
+      </span>
+    </mat-error>
+  </mat-form-field>
+
+  <!--Nacionalidad-->
+  <mat-form-field appearance="fill">
+    <mat-label>Nacionalidad</mat-label>
+    <input
+      matInput
+      #input
+      placeholder="Nacionalidad"
+      [(ngModel)]="data.nacionalidad"
+      name="nacionalidad"
+      formControlName="nacionalidad"
+      required
+    />
+    <mat-error>
+      <span *ngIf="form.get('nacionalidad')?.invalid" class="error"
+        >La nacionalidad es requerida.
+      </span>
+    </mat-error>
+  </mat-form-field>
+  <!--Estado Civil-->
+  <mat-form-field appearance="fill">
+    <mat-label>Estado civil</mat-label>
+    <input
+      matInput
+      #input
+      placeholder="Estado civil"
+      [(ngModel)]="data.estadocivil"
+      name="estadocivil"
+      formControlName="estadocivil"
+      required
+    />
+    <mat-error>
+      <span *ngIf="form.get('estadocivil')?.invalid" class="error"
+        >El Estado civil es requerido.
+      </span>
+    </mat-error>
+  </mat-form-field>
+
+  <!--Acerca de mi-->
+  <mat-form-field appearance="fill">
+    <mat-label>Acerca de mi:</mat-label>
+    <input
+      matInput
+      #input
+      placeholder="Acerca de mi"
+      [(ngModel)]="data.acercade"
+      name="acercade"
+      formControlName="acercade"
+      required
+    />
+    <mat-error>
+      <span *ngIf="form.get('acercade')?.invalid" class="error"
+        >Acerca de mi es requerido.
+      </span>
+    </mat-error>
+  </mat-form-field>
+
+  <!--Foto de PErfil ya realizado en editar-fotoperfil-->
+  <mat-form-field appearance="fill">
+    <mat-label>Foto de Perfil</mat-label>
+    <input
+      matInput
+      #input
+      placeholder="Foto de perfil"
+      [(ngModel)]="data.fotoPerfil"
+      name="fotoPerfil"
+      formControlName="fotoPerfil"
+      required
+      [readonly]="true"
+    />
+    <!--  <mat-error>
+      <span *ngIf="form.get('fotoPerfil')?.invalid" class="error"
+        >El acerca de mi es requerido.
+      </span>
+    </mat-error> -->
+  </mat-form-field>
+  <div>
+    <h3>*Foto de Perfil sólo es de lectura</h3>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancelar</button>
+  <button
+    [disabled]="form.invalid"
+    mat-button
+    [mat-dialog-close]="data"
+    cdkFocusInitial
+  >
+    Modificar
+  </button>
+</div>

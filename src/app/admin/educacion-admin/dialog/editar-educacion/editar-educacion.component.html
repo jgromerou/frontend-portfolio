@@ -86,6 +86,25 @@
       </span>
     </mat-error>
   </mat-form-field>
+
+  <!--Link imagen-->
+  <mat-form-field appearance="fill">
+    <mat-label>Link imagen</mat-label>
+    <input
+      matInput
+      #input
+      placeholder="Link Imagen"
+      [(ngModel)]="data.linkimagen"
+      name="linkimagen"
+      formControlName="linkimagen"
+      required
+    />
+    <mat-error>
+      <span *ngIf="form.get('linkimagen')?.invalid" class="error"
+        >El link imagen es Requerido
+      </span>
+    </mat-error>
+  </mat-form-field>
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">Cancelar</button>
