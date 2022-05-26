@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import Swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root',
@@ -60,13 +61,31 @@ export class ProfileService {
       })
       .pipe(
         tap(
-          //Log the result or error
+          // Log the result or error
           {
             next: () => {
               this.datosSubject.next(foto);
+              Swal.fire({
+                toast: true,
+                position: 'top-end',
+                icon: 'success',
+                title: 'Se editó correctamente',
+                showConfirmButton: false,
+                timer: 1500,
+              });
+              return;
             },
-            error: () => {
+            error: (error) => {
               this.datosSubject.next(foto);
+              console.log(error);
+              Swal.fire({
+                toast: true,
+                position: 'top-end',
+                icon: 'error',
+                title: 'Error de conexión',
+                showConfirmButton: false,
+                timer: 1500,
+              });
             },
           }
         )
@@ -87,10 +106,26 @@ export class ProfileService {
           {
             next: () => {
               this.profileSubject.next(profile);
-              console.log('editado el profile', profile);
+              Swal.fire({
+                toast: true,
+                position: 'top-end',
+                icon: 'success',
+                title: 'Se editó correctamente',
+                showConfirmButton: false,
+                timer: 1500,
+              });
+              return;
             },
             error: (error) => {
               console.log(error);
+              Swal.fire({
+                toast: true,
+                position: 'top-end',
+                icon: 'error',
+                title: 'Error de conexión',
+                showConfirmButton: false,
+                timer: 1500,
+              });
             },
           }
         )

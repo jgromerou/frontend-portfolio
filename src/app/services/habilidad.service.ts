@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import Swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root',
@@ -33,9 +34,26 @@ export class HabilidadService {
           {
             next: () => {
               this.habilidadSubject.next(hab);
+              Swal.fire({
+                toast: true,
+                position: 'top-end',
+                icon: 'success',
+                title: 'Se agregó la nueva Habilidad',
+                showConfirmButton: false,
+                timer: 1500,
+              });
+              return;
             },
             error: (error) => {
               console.log(error);
+              Swal.fire({
+                toast: true,
+                position: 'top-end',
+                icon: 'error',
+                title: 'Error de conexión',
+                showConfirmButton: false,
+                timer: 1500,
+              });
             },
           }
         )
@@ -56,9 +74,26 @@ export class HabilidadService {
           {
             next: () => {
               this.habilidadSubject.next(hab);
+              Swal.fire({
+                toast: true,
+                position: 'top-end',
+                icon: 'success',
+                title: 'Se editó correctamente',
+                showConfirmButton: false,
+                timer: 1500,
+              });
+              return;
             },
             error: (error) => {
               console.log(error);
+              Swal.fire({
+                toast: true,
+                position: 'top-end',
+                icon: 'error',
+                title: 'Error de conexión',
+                showConfirmButton: false,
+                timer: 1500,
+              });
             },
           }
         )
@@ -80,9 +115,25 @@ export class HabilidadService {
           {
             next: () => {
               this.habilidadSubject.next(hab);
+              Swal.fire({
+                toast: true,
+                position: 'top-end',
+                icon: 'success',
+                title: 'Se borró correctamente',
+                showConfirmButton: false,
+                timer: 1500,
+              });
             },
             error: (error) => {
               console.log(error);
+              Swal.fire({
+                toast: true,
+                position: 'top-end',
+                icon: 'error',
+                title: 'Error de conexión',
+                showConfirmButton: false,
+                timer: 1500,
+              });
             },
           }
         )
