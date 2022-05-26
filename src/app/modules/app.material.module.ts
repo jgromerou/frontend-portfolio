@@ -17,8 +17,6 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { HttpClientModule } from '@angular/common/http';
-
-// new
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import { MatSelectModule } from '@angular/material/select';
@@ -26,7 +24,6 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatSortModule } from '@angular/material/sort';
-// new modules
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
@@ -35,7 +32,6 @@ import { ClipboardModule } from '@angular/cdk/clipboard';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 
 import { MatNativeDateModule, MatRippleModule } from '@angular/material/core';
-//const components = [];
 
 const modules = [
   CommonModule,
@@ -75,13 +71,8 @@ const modules = [
 ];
 
 @NgModule({
-  declarations: [
-    //...components
-  ],
+  declarations: [],
   imports: [...modules],
-  exports: [
-    //...components,
-    ...modules,
-  ],
+  exports: [...modules],
 })
 export class AppMaterialModule {}

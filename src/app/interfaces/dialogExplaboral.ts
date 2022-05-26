@@ -10,5 +10,4 @@ export interface DialogExplaboral {
   descripcionTareas: string;
   fechaInicio: MatDatepickerPanel<MatDatepickerControl<any>, any, any>;
   fechaFin: Date;
-  /* persona: number; */
 }

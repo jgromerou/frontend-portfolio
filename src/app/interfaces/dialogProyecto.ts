@@ -3,5 +3,4 @@ export interface DialogProyecto {
   proyecto: string;
   tecnologia: string;
   linkrepositorio: string;
-  /* persona: number; */
 }

@@ -11,5 +11,4 @@ export interface DialogEducacion {
   fechaFin: MatDatepickerPanel<MatDatepickerControl<any>, any, any>;
   porcentaje_carrera: number;
   linkimagen: string;
-  /* persona: number; */
 }

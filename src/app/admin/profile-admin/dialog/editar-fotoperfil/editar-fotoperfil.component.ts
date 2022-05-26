@@ -17,13 +17,9 @@ export class EditarFotoperfilComponent {
   constructor(
     public dialogRef: MatDialogRef<EditarFotoperfilComponent>,
     @Inject(MAT_DIALOG_DATA)
-    public data: any /* public fb: FormBuilder */,
+    public data: any,
     public datosProfile: ProfileService
   ) {}
-
-  /*  getError() {
-    return this.formControl.hasError('required') ? 'El campo es requerido' : '';
-  } */
 
   onNoClick(): void {
     this.dialogRef.close();
@@ -39,7 +35,7 @@ export class EditarFotoperfilComponent {
       };
       reader.readAsDataURL(event.target.files[0]);
     }
-    ////////////////////////////////
+
     this.data.fotoperfil = event.target.files[0];
   }
 }

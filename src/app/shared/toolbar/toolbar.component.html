@@ -25,34 +25,12 @@
     ></a>
   </div>
 
-  <!--   <div class="redes insta">
-    <a href="https://www.instagram.com/" target="_blank"
-      ><i class="bi bi-instagram color-redes"></i
-    ></a>
-  </div> -->
-
   <div class="redes lk">
     <a href="https://www.github.com/jgromerou/" target="_blank"
       ><i class="bi bi-github color-redes"></i
     ></a>
   </div>
-  <!-- <button
-    mat-icon-button
-    class="example-icon favorite-icon"
-    aria-label="Example icon-button with heart icon"
-  >
-    <mat-icon>favorite</mat-icon>
-  </button>
-  <a
-    mat-icon-button
-    class="example-icon"
-    aria-label="Example icon-button with share icon"
-    href="#projects"
-  >
-    <mat-icon>share</mat-icon>
-  </a> -->
 
-  <!-- <a mat-button [routerLink]="login">Mi perfil</a> -->
   <button mat-button *ngIf="!authService.isAdmin" (click)="irLogin()">
     Login
   </button>

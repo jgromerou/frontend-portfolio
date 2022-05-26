@@ -14,19 +14,11 @@ export class ProyectosGithubComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
   ngOnInit() {
-    /* this.getProfileInfo().subscribe((profile) => {
-      console.log('Mi perfil:', profile);
-      this.profile = profile;
-    }); */
     this.getProfileRepos().subscribe((repos) => {
       console.log('Mi repositorio:', repos);
       this.repos = repos;
     });
   }
-
-  /*  private getProfileInfo() {
-    return this.http.get('https://api.github.com/users/' + this.username);
-  } */
 
   private getProfileRepos() {
     return this.http.get(

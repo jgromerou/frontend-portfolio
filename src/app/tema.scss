@@ -19,12 +19,4 @@ $tema: mat.define-light-theme(
   )
 );
 
-/* $tema: mat.define-dark-theme((
-    color: (
-        primary: $color-primary,
-        accent: $color-accent,
-        warn: $color-warn
-    )
-)); */
-
 @include mat.all-component-themes($tema);

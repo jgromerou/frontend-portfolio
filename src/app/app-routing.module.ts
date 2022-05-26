@@ -7,24 +7,6 @@ import { LoginComponent } from './shared/login/login.component';
 import { NopagefoundComponent } from './shared/nopagefound/nopagefound.component';
 
 const routes: Routes = [
-  /*   {
-    path: '',
-    component: HomepageComponent,
-  },
-  {
-    path: 'login',
-    component: LoginComponent,
-  },
-  {
-    path: 'admin',
-    component: DashboardAdminComponent,
-  },
-  {
-    path: '',
-    pathMatch: 'full',
-    redirectTo: 'dashboard',
-  },
- */
   {
     path: 'admin',
     loadChildren: () =>

@@ -29,8 +29,6 @@ export class ProfileComponent implements OnInit {
     });
   }
 
-  ngAfterViewInit() {}
-
   createImageFromBlob(image: Blob) {
     let reader = new FileReader();
     reader.addEventListener(

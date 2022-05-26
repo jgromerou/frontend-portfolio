@@ -15,5 +15,4 @@ export interface DialogProfile {
   estadocivil: string;
   acercade: string;
   fotoPerfil: string;
-  /* persona: number; */
 }
