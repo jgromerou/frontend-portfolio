@@ -75,17 +75,8 @@ export class ProfileService {
               });
               return;
             },
-            error: (error) => {
+            error: () => {
               this.datosSubject.next(foto);
-              console.log(error);
-              Swal.fire({
-                toast: true,
-                position: 'top-end',
-                icon: 'error',
-                title: 'Error de conexión',
-                showConfirmButton: false,
-                timer: 1500,
-              });
             },
           }
         )
