@@ -1,11 +1,12 @@
 <h1 mat-dialog-title>Nueva Experiencia Laboral</h1>
 <div mat-dialog-content align="center" [formGroup]="form">
+  <!--Nombre de la Institución-->
   <mat-form-field appearance="fill">
-    <mat-label>Nombre de la Empresa</mat-label>
+    <mat-label>Nombre de empresa</mat-label>
     <input
       matInput
       #input
-      placeholder="Nombre de la Empresa"
+      placeholder="Nombre de empresa"
       [(ngModel)]="data.empresa"
       name="empresa"
       formControlName="empresa"
@@ -13,16 +14,20 @@
     />
     <mat-error>
       <span *ngIf="form.get('empresa')?.invalid" class="error"
-        >El nombre de la empresa es requerido.
+        >La empresa es requerida
+      </span>
+      <span *ngIf="form.get('empresa')?.hasError('maxlength')" class="error"
+        >La empresa no debe superar los 50 caracteres
       </span>
     </mat-error>
   </mat-form-field>
+  <!--Puesto Laboral-->
   <mat-form-field appearance="fill">
-    <mat-label>Puesto Laboral</mat-label>
+    <mat-label>Nombre del Puesto Laboral</mat-label>
     <input
       matInput
       #input
-      placeholder="Puesto"
+      placeholder="Nombre del Puesto Laboral"
       [(ngModel)]="data.puesto"
       name="puesto"
       formControlName="puesto"
@@ -30,17 +35,20 @@
     />
     <mat-error>
       <span *ngIf="form.get('puesto')?.invalid" class="error"
-        >El puesto Laboral es Requerido
+        >El Puesto es Requerido
+      </span>
+      <span *ngIf="form.get('puesto')?.hasError('maxlength')" class="error"
+        >El puesto no debe superar los 50 caracteres
       </span>
     </mat-error>
   </mat-form-field>
-  <!--Descripcion tareas-->
+  <!--Descipción de Tareas-->
   <mat-form-field appearance="fill">
-    <mat-label>Descripción de las tareas realizadas</mat-label>
+    <mat-label>Descripción de las tareas</mat-label>
     <input
       matInput
       #input
-      placeholder="Descripción de Tareas"
+      placeholder="Descripción de las tareas"
       [(ngModel)]="data.descripcionTareas"
       name="descripcionTareas"
       formControlName="descripcionTareas"
@@ -48,7 +56,12 @@
     />
     <mat-error>
       <span *ngIf="form.get('descripcionTareas')?.invalid" class="error"
-        >El puesto Laboral es Requerido
+        >La descripcion tareas es Requerida.
+      </span>
+      <span
+        *ngIf="form.get('descripcionTareas')?.hasError('maxlength')"
+        class="error"
+        >No debe superar los 255 caracteres
       </span>
     </mat-error>
   </mat-form-field>

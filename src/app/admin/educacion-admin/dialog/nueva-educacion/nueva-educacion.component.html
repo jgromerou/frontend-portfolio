@@ -16,6 +16,11 @@
       <span *ngIf="form.get('institucion')?.invalid" class="error"
         >La institución es requerida
       </span>
+      <span
+        *ngIf="form.controls['institucion'].hasError('maxlength')"
+        class="error"
+        >El nombre de la institución no puede superar los 40 caracteres
+      </span>
     </mat-error>
   </mat-form-field>
   <!--Título-->
@@ -33,6 +38,9 @@
     <mat-error>
       <span *ngIf="form.get('titulo')?.invalid" class="error"
         >El título es Requerido
+      </span>
+      <span *ngIf="form.controls['titulo'].hasError('maxlength')" class="error"
+        >El nombre del título no puede superar los 40 caracteres
       </span>
     </mat-error>
   </mat-form-field>
@@ -78,11 +86,25 @@
       name="porcentaje_carrera"
       formControlName="porcentaje_carrera"
       required
-      (keyup.enter)="sendit(data)"
     />
     <mat-error>
       <span *ngIf="form.get('porcentaje_carrera')?.invalid" class="error"
-        >El porcentaje de carrera o cursada es requerido
+        >El porcentaje de carrera es requerido
+      </span>
+      <span
+        *ngIf="form.controls['porcentaje_carrera'].hasError('max')"
+        class="error"
+        >Ingrese números sólo entre 0 a 100.
+      </span>
+      <span
+        *ngIf="form.controls['porcentaje_carrera'].hasError('min')"
+        class="error"
+        >Ingrese números sólo entre 0 a 100.
+      </span>
+      <span
+        *ngIf="form.controls['porcentaje_carrera'].hasError('pattern')"
+        class="error"
+        >Sólo se permiten números.
       </span>
     </mat-error>
   </mat-form-field>
@@ -98,10 +120,16 @@
       name="linkimagen"
       formControlName="linkimagen"
       required
+      (keyup.enter)="sendit(data)"
     />
     <mat-error>
       <span *ngIf="form.get('linkimagen')?.invalid" class="error"
         >El link imagen es Requerido
+      </span>
+      <span
+        *ngIf="form.controls['linkimagen'].hasError('maxlength')"
+        class="error"
+        >El link de la imagen no puede superar los 254 caracteres
       </span>
     </mat-error>
   </mat-form-field>

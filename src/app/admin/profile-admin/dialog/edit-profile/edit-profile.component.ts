@@ -17,16 +17,44 @@ export class EditProfileComponent {
     public fb: FormBuilder
   ) {
     this.form = fb.group({
-      nombres: [this.data.nombres, [Validators.required]],
-      apellidos: [this.data.apellidos, [Validators.required]],
-      email: [this.data.email, [Validators.required]],
+      nombres: [
+        this.data.nombres,
+        [Validators.required, Validators.maxLength(40)],
+      ],
+      apellidos: [
+        this.data.apellidos,
+        [Validators.required, Validators.maxLength(40)],
+      ],
+      email: [
+        this.data.email,
+        [Validators.required, Validators.maxLength(100), Validators.email],
+      ],
       fechanacimiento: [this.data.fechanacimiento, [Validators.required]],
-      telefono: [this.data.telefono, [Validators.required]],
-      domicilio: [this.data.domicilio, [Validators.required]],
-      nacionalidad: [this.data.nacionalidad, [Validators.required]],
-      estadocivil: [this.data.estadocivil, [Validators.required]],
-      acercade: [this.data.acercade, [Validators.required]],
-      fotoPerfil: [this.data.fotoPerfil],
+      telefono: [
+        this.data.telefono,
+        [
+          Validators.required,
+          Validators.maxLength(15),
+          Validators.pattern('^[0-9]*$'),
+        ],
+      ],
+      domicilio: [
+        this.data.domicilio,
+        [Validators.required, Validators.maxLength(60)],
+      ],
+      nacionalidad: [
+        this.data.nacionalidad,
+        [Validators.required, Validators.maxLength(40)],
+      ],
+      estadocivil: [
+        this.data.estadocivil,
+        [Validators.required, Validators.maxLength(40)],
+      ],
+      acercade: [
+        this.data.acercade,
+        [Validators.required, Validators.maxLength(255)],
+      ],
+      fotoPerfil: [this.data.fotoPerfil, []],
     });
   }
   onNoClick(): void {

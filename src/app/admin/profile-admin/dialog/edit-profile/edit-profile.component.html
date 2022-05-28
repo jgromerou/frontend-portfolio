@@ -16,6 +16,9 @@
       <span *ngIf="form.get('nombres')?.invalid" class="error"
         >El/los Nombre/s requerido/s.
       </span>
+      <span *ngIf="form.get('nombres')?.hasError('maxlength')" class="error"
+        >No debe superar los 40 caracteres.
+      </span>
     </mat-error>
   </mat-form-field>
 
@@ -35,6 +38,9 @@
       <span *ngIf="form.get('apellidos')?.invalid" class="error"
         >El/los Apellido/s requerido/s.
       </span>
+      <span *ngIf="form.get('apellidos')?.hasError('maxlength')" class="error"
+        >No debe superar los 40 caracteres.
+      </span>
     </mat-error>
   </mat-form-field>
 
@@ -53,6 +59,12 @@
     <mat-error>
       <span *ngIf="form.get('email')?.invalid" class="error"
         >El Email es requerido.
+      </span>
+      <span *ngIf="form.get('email')?.hasError('maxlength')" class="error"
+        >No debe superar los 100 caracteres.
+      </span>
+      <span *ngIf="form.get('email')?.hasError('email')" class="error"
+        >Debe tener formato de correo electrónico.
       </span>
     </mat-error>
   </mat-form-field>
@@ -89,6 +101,12 @@
       <span *ngIf="form.get('telefono')?.invalid" class="error"
         >El telefono es requerido.
       </span>
+      <span *ngIf="form.get('telefono')?.hasError('maxlength')" class="error"
+        >No debe superar los 15 caracteres.
+      </span>
+      <span *ngIf="form.get('telefono')?.hasError('pattern')" class="error"
+        >Sólo debe ingresar números.
+      </span>
     </mat-error>
   </mat-form-field>
 
@@ -107,6 +125,9 @@
     <mat-error>
       <span *ngIf="form.get('domicilio')?.invalid" class="error"
         >El domicilio es requerido.
+      </span>
+      <span *ngIf="form.get('domicilio')?.hasError('maxlength')" class="error"
+        >No debe superar los 60 caracteres.
       </span>
     </mat-error>
   </mat-form-field>
@@ -127,6 +148,11 @@
       <span *ngIf="form.get('nacionalidad')?.invalid" class="error"
         >La nacionalidad es requerida.
       </span>
+      <span
+        *ngIf="form.get('nacionalidad')?.hasError('maxlength')"
+        class="error"
+        >No debe superar los 40 caracteres.
+      </span>
     </mat-error>
   </mat-form-field>
   <!--Estado Civil-->
@@ -144,6 +170,9 @@
     <mat-error>
       <span *ngIf="form.get('estadocivil')?.invalid" class="error"
         >El Estado civil es requerido.
+      </span>
+      <span *ngIf="form.get('estadocivil')?.hasError('maxlength')" class="error"
+        >No debe superar los 60 caracteres.
       </span>
     </mat-error>
   </mat-form-field>
@@ -163,6 +192,9 @@
     <mat-error>
       <span *ngIf="form.get('acercade')?.invalid" class="error"
         >Acerca de mi es requerido.
+      </span>
+      <span *ngIf="form.get('acercade')?.hasError('maxlength')" class="error"
+        >No debe superar los 255 caracteres.
       </span>
     </mat-error>
   </mat-form-field>

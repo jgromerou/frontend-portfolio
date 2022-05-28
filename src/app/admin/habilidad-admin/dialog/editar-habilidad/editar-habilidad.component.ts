@@ -15,20 +15,42 @@ import { DialogHabilidad } from 'src/app/interfaces/dialogHabilidad';
 })
 export class EditarHabilidadComponent {
   dataSource: any;
-
+  form!: FormGroup;
   constructor(
     public dialogRef: MatDialogRef<EditarHabilidadComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogHabilidad,
     public fb: FormBuilder
-  ) {}
-
-  formControl = new FormControl('', [Validators.required]);
+  ) {
+    this.form = fb.group({
+      habilidad: [
+        this.data.habilidad,
+        [Validators.required, Validators.maxLength(40)],
+      ],
+      porcentaje_habilidad: [
+        this.data.porcentaje_habilidad,
+        [
+          Validators.required,
+          Validators.pattern('^[0-9]*$'),
+          Validators.min(0),
+          Validators.max(100),
+        ],
+      ],
+    });
+  }
 
   getError() {
-    return this.formControl.hasError('required') ? 'El campo es requerido' : '';
+    return this.form.hasError('required') ? 'El campo es requerido' : '';
   }
 
   onNoClick(): void {
     this.dialogRef.close();
+  }
+
+  sendit(data: any) {
+    if (this.form.valid) {
+      this.dialogRef.close(data);
+    } else {
+      console.log('Los campos son requeridos');
+    }
   }
 }

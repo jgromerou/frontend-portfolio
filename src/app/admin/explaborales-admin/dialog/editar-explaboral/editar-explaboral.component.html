@@ -1,7 +1,7 @@
 <h1 mat-dialog-title>Editar Experiencias Laborales</h1>
 <div mat-dialog-content align="center" [formGroup]="form">
+  <!--Nombre de la Institución-->
   <mat-form-field appearance="fill">
-    <!--Nombre de la Institución-->
     <mat-label>Nombre de empresa</mat-label>
     <input
       matInput
@@ -15,6 +15,9 @@
     <mat-error>
       <span *ngIf="form.get('empresa')?.invalid" class="error"
         >La empresa es requerida
+      </span>
+      <span *ngIf="form.get('empresa')?.hasError('maxlength')" class="error"
+        >La empresa no debe superar los 50 caracteres
       </span>
     </mat-error>
   </mat-form-field>
@@ -34,6 +37,9 @@
       <span *ngIf="form.get('puesto')?.invalid" class="error"
         >El Puesto es Requerido
       </span>
+      <span *ngIf="form.get('puesto')?.hasError('maxlength')" class="error"
+        >El puesto no debe superar los 50 caracteres
+      </span>
     </mat-error>
   </mat-form-field>
   <!--Descipción de Tareas-->
@@ -50,7 +56,12 @@
     />
     <mat-error>
       <span *ngIf="form.get('descripcionTareas')?.invalid" class="error"
-        >La descripcion tareas es Requerida
+        >La descripcion tareas es Requerida.
+      </span>
+      <span
+        *ngIf="form.get('descripcionTareas')?.hasError('maxlength')"
+        class="error"
+        >No debe superar los 255 caracteres
       </span>
     </mat-error>
   </mat-form-field>

@@ -22,10 +22,18 @@ export class NuevaHabilidadComponent {
     public fb: FormBuilder
   ) {
     this.form = fb.group({
-      habilidad: [this.data.habilidad, [Validators.required]],
+      habilidad: [
+        this.data.habilidad,
+        [Validators.required, Validators.maxLength(40)],
+      ],
       porcentaje_habilidad: [
         this.data.porcentaje_habilidad,
-        [Validators.required],
+        [
+          Validators.required,
+          Validators.pattern('^[0-9]*$'),
+          Validators.min(0),
+          Validators.max(100),
+        ],
       ],
     });
   }

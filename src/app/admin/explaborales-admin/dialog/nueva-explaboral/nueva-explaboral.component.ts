@@ -17,10 +17,20 @@ export class NuevaExplaboralComponent {
     public fb: FormBuilder
   ) {
     this.form = fb.group({
-      empresa: [this.data.empresa, [Validators.required]],
-      puesto: [this.data.puesto, [Validators.required]],
-      descripcionTareas: [this.data.descripcionTareas, [Validators.required]],
+      empresa: [
+        this.data.empresa,
+        [Validators.required, Validators.maxLength(50)],
+      ],
+      puesto: [
+        this.data.puesto,
+        [Validators.required, Validators.maxLength(50)],
+      ],
+      descripcionTareas: [
+        this.data.descripcionTareas,
+        [Validators.required, Validators.maxLength(255)],
+      ],
       fechaInicio: [this.data.fechaInicio, [Validators.required]],
+      fechaFin: [this.data.fechaFin, []],
     });
   }
 

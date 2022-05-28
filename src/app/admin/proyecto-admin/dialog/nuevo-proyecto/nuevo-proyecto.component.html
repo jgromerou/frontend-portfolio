@@ -14,11 +14,14 @@
     />
     <mat-error>
       <span *ngIf="form.get('proyecto')?.invalid" class="error"
-        >El nombre del Proyecto es requerido.
+        >El nombre del Proyecto es requerido
+      </span>
+      <span *ngIf="form.get('proyecto')?.hasError('maxlength')" class="error"
+        >El nombre no debe superar los 40 caracteres
       </span>
     </mat-error>
   </mat-form-field>
-  <!--Tecnología-->
+  <!--Título-->
   <mat-form-field appearance="fill">
     <mat-label>Tecnología</mat-label>
     <input
@@ -32,7 +35,10 @@
     />
     <mat-error>
       <span *ngIf="form.get('tecnologia')?.invalid" class="error"
-        >La Tecnología es Requerida
+        >La tecnologia es requerida
+      </span>
+      <span *ngIf="form.get('tecnologia')?.hasError('maxlength')" class="error"
+        >Tecnología no debe superar los 40 caracteres
       </span>
     </mat-error>
   </mat-form-field>
@@ -50,7 +56,12 @@
     />
     <mat-error>
       <span *ngIf="form.get('linkrepositorio')?.invalid" class="error"
-        >El Link del Repositorio es Requerido
+        >El link del repositorio es Requerido.
+      </span>
+      <span
+        *ngIf="form.get('linkrepositorio')?.hasError('maxlength')"
+        class="error"
+        >No debe superar los 254 caracteres
       </span>
     </mat-error>
   </mat-form-field>

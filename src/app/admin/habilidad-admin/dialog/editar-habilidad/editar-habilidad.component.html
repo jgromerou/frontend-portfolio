@@ -1,36 +1,70 @@
 <h1 mat-dialog-title>Editar Habilidad</h1>
 <h3 mat-dialog-title>ID Habilidad: {{ data.idHabilidad }}</h3>
-<div mat-dialog-content align="center">
+<div mat-dialog-content align="center" [formGroup]="form">
   <mat-form-field appearance="fill">
     <mat-label>Habilidad</mat-label>
     <input
       matInput
       #input
-      class="form-control"
       placeholder="Habilidad"
       [(ngModel)]="data.habilidad"
+      formControlName="habilidad"
       name="habilidad"
       required
     />
-    <mat-error *ngIf="formControl.invalid">{{ getError() }}</mat-error>
+    <mat-error>
+      <span *ngIf="form.get('habilidad')?.invalid" class="error"
+        >La habilidad es requerida.
+      </span>
+      <span
+        *ngIf="form.controls['habilidad'].hasError('maxlength')"
+        class="error"
+        >El nombre de Habilidad no puede superar los 40 caracteres
+      </span>
+    </mat-error>
   </mat-form-field>
   <mat-form-field appearance="fill">
     <mat-label>Porcentaje Habilidad</mat-label>
     <input
       matInput
       #input
-      class="form-control"
-      placeholder="Descripción"
+      placeholder="porcentaje_habilidad"
       [(ngModel)]="data.porcentaje_habilidad"
       name="porcentaje_habilidad"
+      formControlName="porcentaje_habilidad"
       required
+      (keyup.enter)="sendit(data)"
     />
-    <mat-error *ngIf="formControl.invalid">{{ getError() }}</mat-error>
+    <mat-error>
+      <span *ngIf="form.get('porcentaje_habilidad')?.invalid" class="error"
+        >El porcentaje de habilidad es requerido
+      </span>
+      <span
+        *ngIf="form.controls['porcentaje_habilidad'].hasError('max')"
+        class="error"
+        >Ingrese números sólo entre 0 a 100.
+      </span>
+      <span
+        *ngIf="form.controls['porcentaje_habilidad'].hasError('min')"
+        class="error"
+        >Ingrese números sólo entre 0 a 100.
+      </span>
+      <span
+        *ngIf="form.controls['porcentaje_habilidad'].hasError('pattern')"
+        class="error"
+        >Sólo se permiten números.
+      </span>
+    </mat-error>
   </mat-form-field>
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">Cancelar</button>
-  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>
+  <button
+    [disabled]="form.invalid"
+    mat-button
+    [mat-dialog-close]="data"
+    cdkFocusInitial
+  >
     Modificar
   </button>
 </div>

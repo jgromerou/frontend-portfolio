@@ -19,9 +19,18 @@ export class NuevoProyectoComponent {
     public fb: FormBuilder
   ) {
     this.form = fb.group({
-      proyecto: [this.data.proyecto, [Validators.required]],
-      tecnologia: [this.data.tecnologia, [Validators.required]],
-      linkrepositorio: [this.data.linkrepositorio, [Validators.required]],
+      proyecto: [
+        this.data.proyecto,
+        [Validators.required, Validators.maxLength(40)],
+      ],
+      tecnologia: [
+        this.data.tecnologia,
+        [Validators.required, Validators.maxLength(40)],
+      ],
+      linkrepositorio: [
+        this.data.linkrepositorio,
+        [Validators.required, Validators.maxLength(254)],
+      ],
     });
   }
 

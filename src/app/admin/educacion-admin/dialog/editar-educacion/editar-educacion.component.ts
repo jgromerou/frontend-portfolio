@@ -22,16 +22,37 @@ export class EditarEducacionComponent {
     public fb: FormBuilder
   ) {
     this.form = fb.group({
-      institucion: [this.data.institucion, [Validators.required]],
-      titulo: [this.data.titulo, [Validators.required]],
+      institucion: [
+        this.data.institucion,
+        [Validators.required, Validators.maxLength(40)],
+      ],
+      titulo: [
+        this.data.titulo,
+        [Validators.required, Validators.maxLength(40)],
+      ],
       fechaInicio: [this.data.fechaInicio, [Validators.required]],
       fechaFin: [this.data.fechaFin, [Validators.required]],
-      porcentaje_carrera: [this.data.porcentaje_carrera, [Validators.required]],
-      linkimagen: [this.data.linkimagen, [Validators.required]],
+      porcentaje_carrera: [
+        this.data.porcentaje_carrera,
+        [
+          Validators.required,
+          Validators.pattern('^[0-9]*$'),
+          Validators.min(0),
+          Validators.max(100),
+        ],
+      ],
+      linkimagen: [
+        this.data.linkimagen,
+        [Validators.required, Validators.maxLength(254)],
+      ],
     });
   }
   onNoClick(): void {
     this.dialogRef.close();
+  }
+
+  getError() {
+    return this.form.hasError('required') ? 'El campo es requerido' : '';
   }
 
   sendit(data: any) {
